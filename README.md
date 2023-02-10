@@ -5,9 +5,6 @@
 3. Run `npm install`
 4. Run `npm run storybook`
 
-# Development Environment Setup
-
-
 # Making Contributions
 1. Create a branch with your name
 2. Make commits on this branch
