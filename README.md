@@ -18,5 +18,5 @@
 
 
 # Adding a Component
-1. Make 3 files: `componentName.jsx`, `componentName.css`, `componentName.stories.jsx`
+1. Make 3 files: `componentName.tsx`, `componentName.css`, `componentName.stories.tsx`
 2. Be sure to replace component name with your component's name
