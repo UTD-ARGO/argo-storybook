@@ -1,0 +1,42 @@
+.storybook-searchbar {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+
+	background-image: url(./assets/search.svg);
+	background-repeat:no-repeat;
+	background-position-y: center;
+	background-position-x: 16px;
+	background-size: 18px 18px;
+
+	letter-spacing: 0.5px;
+	color: #595959;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px;
+	padding-left: 42px;
+	gap: 8px;
+
+	position: absolute;
+	width: 160px;
+	height: 24px;
+	left: 16px;
+	top: 16px;
+}
+
+.storybook-searchbar--outlined {
+	border: 1px solid #595959;
+	border-radius: 4px;
+}
+
+.storybook-searchbar--contained {
+	background-color: #FFFFFF;
+	border: 0px;
+	border-radius: 4px;
+}
