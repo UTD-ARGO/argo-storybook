@@ -13,10 +13,15 @@
 # Making a Pull Request
 1. Make sure to `git rebase main`
 2. Then do `git push --force`
-3. Go ahead and create the PR
+3. Create a pull request
 4. Assign 2 team members to approve and review your changes 
 
 
 # Adding a Component
 1. Make 3 files: `componentName.tsx`, `componentName.css`, `componentName.stories.tsx`
-2. Be sure to replace component name with your component's name
+2. Replace `componentName` with your component's name
+
+# Writing CSS
+1. Each component should have its own CSS file associated with it
+2. Styles must follow a specific set of guidelines to be accepted
+   1. See: [CSS Guidelines](css-guidelines.md)
