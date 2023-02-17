@@ -18,7 +18,7 @@ export const Badge = ({
   return (
 	<h1>
 	  <span
-	  className={['badge', `badge`, mode].join(' ')}
+	  className={['badge', mode].join(' ')}
 	  {...props}
 	  >
 	  {label}
