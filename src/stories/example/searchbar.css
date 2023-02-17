@@ -4,6 +4,7 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 24px;
+	outline: none;
 
 	background-image: url(./assets/search.svg);
 	background-repeat:no-repeat;
@@ -30,10 +31,6 @@
 	top: 16px;
 }
 
-.searchbar:hover {
-	background-color: #ECF1FF;
-}
-
 .searchbar--outlined {
 	border: 1px solid #595959;
 	border-radius: 4px;
@@ -48,4 +45,14 @@
 .searchbar--underlined {
 	border: 0px;
 	border-bottom: 1px solid #595959;
+}
+
+.searchbar:hover {
+	background-color: #ECF1FF;
+}
+
+.searchbar:invalid {
+	color: #E41B17;
+	border: 1px solid #E41B17;
+	border-radius: 4px;
 }
