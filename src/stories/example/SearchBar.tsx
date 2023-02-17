@@ -24,7 +24,6 @@ export const SearchBar = ({
       {...props}
 	  placeholder={label}
 	  disabled = {disabled}
-	  pattern="[a-z]+"
 	  />
 	</h1>
   );
