@@ -20,11 +20,10 @@ export const SearchBar = ({
   return (
 	<h1>
 	  <input type="text" 
-	  className={['searchbar', `searchbar`, mode].join(' ')}
+	  className={['searchbar', mode].join(' ')}
       {...props}
 	  placeholder={label}
 	  disabled = {disabled}
-	  pattern="[a-z]+"
 	  />
 	</h1>
   );

@@ -1,0 +1,44 @@
+.badge {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 2px 8px;
+	gap: 8px;
+	position: relative;
+	border-radius: 4px;
+
+	font-family: 'Roboto Bold';
+	font-style: normal;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.03em;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+
+.badge--default {
+	background: #EBEBEB;
+	color: #595959;
+}
+
+.badge--primary {
+	background: #D9F1FF;
+	color: #01579B;
+}
+
+.badge--success {
+	background: #CCFFCE;
+	color: #0C5300;
+}
+
+.badge--warning {
+	background: #FFEBCE;
+	color: #9E5000;
+}
+
+.badge--danger {
+	background: #FFD7D7;
+	color: #9A0000;
+}
+
