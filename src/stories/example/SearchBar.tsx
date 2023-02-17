@@ -1,30 +1,30 @@
 import React from 'react';
 import './searchbar.css';
+import './global.css';
 
 interface SearchBarProps {
-  primary?: boolean;
-  backgroundColor?: string;
-  size?: 'small' | 'medium' | 'large';
+  variant?: 'outlined' | 'contained' | 'underlined';
+  disabled: boolean;
   label: string;
   onClick?: () => void;
 }
 
 
 export const SearchBar = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
+  variant,
+  disabled = false,
   label,
   ...props
 }: SearchBarProps) => {
-  const mode = primary ? 'storybook-searchbar--outlined' : 'storybook-searchbar--contained';
+  const mode = `searchbar--${variant}`
   return (
 	<h1>
 	  <input type="text" 
-	  className={['storybook-searchbar', `storybook-searchbar`, mode].join(' ')}
-      style={{ backgroundColor }}
+	  className={['searchbar', `searchbar`, mode].join(' ')}
       {...props}
-	  placeholder={label} 
+	  placeholder={label}
+	  disabled = {disabled}
+	  pattern="[a-z]+"
 	  />
 	</h1>
   );

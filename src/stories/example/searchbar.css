@@ -1,4 +1,4 @@
-.storybook-searchbar {
+.searchbar {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 400;
@@ -30,13 +30,22 @@
 	top: 16px;
 }
 
-.storybook-searchbar--outlined {
+.searchbar:hover {
+	background-color: #ECF1FF;
+}
+
+.searchbar--outlined {
 	border: 1px solid #595959;
 	border-radius: 4px;
 }
 
-.storybook-searchbar--contained {
+.searchbar--contained {
 	background-color: #FFFFFF;
 	border: 0px;
 	border-radius: 4px;
+}
+
+.searchbar--underlined {
+	border: 0px;
+	border-bottom: 1px solid #595959;
 }

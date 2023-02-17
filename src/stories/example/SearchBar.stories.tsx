@@ -6,20 +6,24 @@ import { SearchBar } from './SearchBar';
 export default {
   title: 'Example/SearchBar',
   component: SearchBar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof SearchBar>;
 
 const Template: ComponentStory<typeof SearchBar> = (args) => <SearchBar {...args} />;
 
 export const Outlined = Template.bind({});
 Outlined.args = {
-  primary: true,
-  label: 'Outlined Search',
+	variant: 'outlined',
+	label: 'Outlined Search',
 };
 
 export const Contained = Template.bind({});
 Contained.args = {
-  label: 'Contained Search',
+	variant: 'contained',
+	label: 'Contained Search',
 };
+
+export const Underlined = Template.bind({});
+Underlined.args = {
+	variant: 'underlined',
+	label: 'Underlined Search',
+}
