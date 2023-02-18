@@ -1,5 +1,5 @@
 .button {
-  font-family: 'Roboto';
+  font-family: inherit;
   border: 0;
   border-radius: 3em;
   cursor: pointer;

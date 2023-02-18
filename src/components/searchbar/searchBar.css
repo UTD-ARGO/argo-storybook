@@ -1,12 +1,12 @@
 .searchbar {
-	font-family: 'Roboto';
+	font-family: inherit;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 24px;
 	outline: none;
 
-	background-image: url(./assets/search.svg);
+	background-image: url('../../assets/search.svg');
 	background-repeat:no-repeat;
 	background-position-y: center;
 	background-position-x: 16px;

@@ -11,15 +11,15 @@
 3. Push to this branch as you develop
 
 # Making a Pull Request
-1. Make sure to `git rebase main`
-2. Then do `git push --force`
+1. Run `git rebase main`
+2. Run `git push --force`
 3. Create a pull request
-4. Assign 2 team members to approve and review your changes 
+4. Assign at least 1 team member to review your changes 
 
 
 # Adding a Component
-1. Make 3 files: `componentName.tsx`, `componentName.css`, `componentName.stories.tsx`
-2. Replace `componentName` with your component's name
+1. Create a new directory in `src/components` called `<componentName>`
+2. Create 3 files within the new directory: `<componentName>.tsx`, `<componentName>.css`, `<componentName>.stories.tsx`
 
 # Writing CSS
 1. Each component should have its own CSS file associated with it
