@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Header } from '../components/Header';
+import { Header } from './Header';
 
 export default {
-  title: 'Components/Header',
+  title: 'Inputs/Header',
   component: Header,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -21,10 +21,20 @@ Global.args = {
   backgroundColor: "steelblue"
 };
 
-export const Toolbar = Template.bind({});
-Toolbar.args = {
+export const Basic = Template.bind({});
+Basic.args = {
   primary: false,
-  title: 'Toolbar',
+  title: 'Basic',
   label: 'toolbar',
+  button: false,
+  backgroundColor: "white"
+};
+
+export const SingleButton = Template.bind({});
+SingleButton.args = {
+  primary: false,
+  title: 'Single Button',
+  label: 'toolbar',
+  button: true,
   backgroundColor: "white"
 };

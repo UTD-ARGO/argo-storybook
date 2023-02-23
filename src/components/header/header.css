@@ -1,0 +1,25 @@
+.header {
+  font-family: 'Roboto';
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header--global {
+    padding: 15px 10px;
+    color: white;
+}
+  
+.header--toolbar {
+    padding: 5px 10px;
+    color: black;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 50px;
+  line-height: 1;
+  margin: 6px 0 6px 10px;
+  display: inline-block;
+  vertical-align: top;
+}
