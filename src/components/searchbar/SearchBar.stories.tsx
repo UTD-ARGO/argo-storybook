@@ -15,17 +15,17 @@ const Template: ComponentStory<typeof SearchBar> = (args) => (
 export const Outlined = Template.bind({});
 Outlined.args = {
 	variant: 'outlined',
-	label: 'Outlined Search'
+	label: 'Search'
 };
 
 export const Contained = Template.bind({});
 Contained.args = {
 	variant: 'contained',
-	label: 'Contained Search'
+	label: 'Search'
 };
 
 export const Underlined = Template.bind({});
 Underlined.args = {
 	variant: 'underlined',
-	label: 'Underlined Search'
+	label: 'Search'
 };
