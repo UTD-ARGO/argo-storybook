@@ -4,6 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import './Dropdown.css'
 
 interface DropdownProps {
     label: string,
@@ -21,7 +22,7 @@ export default function Dropdown({
 
   return (
     <Box className="dropdown-container">
-      <FormControl fullWidth>
+    <FormControl fullWidth>
         <InputLabel id="dropdown-label">Age</InputLabel>
         <Select
           labelId="dropdown-label"
