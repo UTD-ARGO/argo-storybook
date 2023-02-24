@@ -1,0 +1,29 @@
+.MuiChip-root {
+	font-weight: 500 !important;
+}
+
+.MuiChip-colorPrimary {
+	background: #D9F1FF !important;
+	color: #01579B !important;
+}
+
+.MuiChip-colorSuccess {
+	background: #CCFFCE !important;
+	color: #0C5300 !important;
+	font-weight: 400px !important;
+}
+
+.MuiChip-colorInfo {
+	background: #EBEBEB !important;
+	color: #595959 !important;
+}
+
+.MuiChip-colorWarning {
+	background: #FFEBCE !important;
+	color: #9E5000 !important;
+}
+
+.MuiChip-colorError {
+	background: #FFD7D7 !important;
+	color: #9A0000 !important;
+}
