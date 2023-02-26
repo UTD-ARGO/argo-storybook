@@ -1,17 +1,17 @@
 import React from 'react';
-import './badgechip.css';
+import './badge.css';
 import Chip from '@mui/material/Chip';
 
-interface BadgeChipProps {
+interface BadgeProps {
 	variant?: 'default' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
 	label: string;
 }
 
-export const BadgeChip = ({
+export const Badge = ({
 	variant,
 	label,
   ...props
-}: BadgeChipProps) => {
+}: BadgeProps) => {
 	return (
 		<Chip 
 		label={label}
