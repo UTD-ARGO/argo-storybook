@@ -1,44 +1,29 @@
-.badge {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	padding: 2px 8px;
-	gap: 8px;
-	position: relative;
-	border-radius: 4px;
-
-	font-family: inherit;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 24px;
-	letter-spacing: 0.03em;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
+.MuiChip-root {
+	font-weight: 500 !important;
 }
 
-.badge--default {
-	background: #EBEBEB;
-	color: #595959;
+.MuiChip-colorPrimary {
+	background: #D9F1FF !important;
+	color: #01579B !important;
 }
 
-.badge--primary {
-	background: #D9F1FF;
-	color: #01579B;
+.MuiChip-colorSuccess {
+	background: #CCFFCE !important;
+	color: #0C5300 !important;
+	font-weight: 400px !important;
 }
 
-.badge--success {
-	background: #CCFFCE;
-	color: #0C5300;
+.MuiChip-colorInfo {
+	background: #EBEBEB !important;
+	color: #595959 !important;
 }
 
-.badge--warning {
-	background: #FFEBCE;
-	color: #9E5000;
+.MuiChip-colorWarning {
+	background: #FFEBCE !important;
+	color: #9E5000 !important;
 }
 
-.badge--danger {
-	background: #FFD7D7;
-	color: #9A0000;
+.MuiChip-colorError {
+	background: #FFD7D7 !important;
+	color: #9A0000 !important;
 }
-

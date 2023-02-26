@@ -1,7 +1,7 @@
 {
-	"name": "ux-master-library",
+	"name": "utd-argo-ux-master-library",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
 	"dependencies": {
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
@@ -19,7 +19,8 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"build": "cross-env BABEL_ENV=production babel ./src/index.ts -d dist --extensions '.ts,.tsx'",
+		"release": "auto shipit --base-branch main",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"storybook": "start-storybook -p 6006 -s public",
@@ -54,6 +55,8 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.21.0",
+		"@babel/core": "^7.21.0",
 		"@storybook/addon-actions": "^6.5.16",
 		"@storybook/addon-essentials": "^6.5.16",
 		"@storybook/addon-interactions": "^6.5.16",
@@ -64,11 +67,33 @@
 		"@storybook/preset-create-react-app": "^4.1.2",
 		"@storybook/react": "^6.5.16",
 		"@storybook/testing-library": "^0.0.13",
+		"auto": "^10.42.2",
 		"babel-plugin-named-exports-order": "^0.0.2",
 		"chromatic": "^6.17.0",
+		"cross-env": "^7.0.3",
 		"prop-types": "^15.8.1",
 		"webpack": "^5.75.0"
 	},
-	"readme": "ERROR: No README data found!",
-	"_id": "ux-master-library@0.1.0"
+	"babel": {
+		"presets": [
+			[
+				"react-app",
+				{
+					"absoluteRuntime": false
+				}
+			]
+		]
+	},
+	"description": "ARGO UX Master Component Library",
+	"main": "dist/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/UTD-ARGO/argo-storybook.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/UTD-ARGO/argo-storybook/issues"
+	},
+	"homepage": "https://github.com/UTD-ARGO/argo-storybook#readme"
 }
