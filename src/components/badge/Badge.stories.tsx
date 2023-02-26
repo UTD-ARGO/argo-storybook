@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { BadgeChip } from './BadgeChip';
+import { Badge } from './Badge';
 
 export default {
-	title: 'Inputs/BadgeChip',
-	component: BadgeChip
-} as ComponentMeta<typeof BadgeChip>;
+	title: 'Inputs/Badge',
+	component: Badge
+} as ComponentMeta<typeof Badge>;
 
-const Template: ComponentStory<typeof BadgeChip> = (args) => <BadgeChip {...args} />;
+const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
