@@ -36,6 +36,8 @@ jobs:
           #👇 npm token, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/distribute/ to obtain it
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
           yarn install --frozen-lockfile
           yarn build
           yarn release
