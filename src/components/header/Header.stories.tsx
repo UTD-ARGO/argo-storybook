@@ -15,26 +15,41 @@ const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
 export const Global = Template.bind({});
 Global.args = {
-  primary: true,
-  title: 'Global Header',
-  label: 'global',
+  title: 'Title',
+  variant: 'global',
   backgroundColor: "steelblue"
 };
 
 export const Basic = Template.bind({});
 Basic.args = {
-  primary: false,
-  title: 'Basic',
-  label: 'toolbar',
-  button: false,
+  title: 'Title',
+  variant: 'basic',
   backgroundColor: "white"
 };
 
-export const SingleButton = Template.bind({});
-SingleButton.args = {
-  primary: false,
-  title: 'Single Button',
-  label: 'toolbar',
-  button: true,
+export const Button = Template.bind({});
+Button.args = {
+  title: 'Title',
+  variant: 'button',
+  backgroundColor: "white",
+  buttonLabel: "Action"
+};
+
+export const Tab = Template.bind({});
+Tab.args = {
+  variant: 'tab',
+  tabLabel1: "Home",
+  tabLabel2: "Products",
+  tabLabel3: "Profile",
+  buttonLabel: "Action",
+  backgroundColor: "white"
+};
+
+export const Dropdown = Template.bind({});
+Dropdown.args = {
+  variant: 'dropdown', 
+  dropdownLabel: "Age",
+  dropdownItems: ['Item 1', 'Item 2', 'Item 3'],
+  buttonLabel: "Action",
   backgroundColor: "white"
 };

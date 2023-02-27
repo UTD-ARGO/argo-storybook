@@ -1,84 +1,40 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { TextField } from '@mui/material';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-// @ts-ignore
-import SearchIcon from '@mui/icons-material/Search';
-// @ts-ignore
+import { styled, alpha, createTheme, ThemeProvider } from '@mui/system';
+import {AppBar, Badge, Box, Toolbar, Button, IconButton, Typography, InputBase, TextField} from "@mui/material";
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { SearchBar } from '../searchbar/SearchBar';
+import Dropdown from '../dropdown/Dropdown';
+import Tab from '../tab/Tab';
 import './header.css'
 
 interface HeaderProps {
-  primary?: boolean;
-  title: string;
-  label: string;
-  button: boolean;
+  variant: string;
+  title?: string;
+  buttonLabel?: string;
+  tabLabel1: string;
+  tabLabel2: string;
+  tabLabel3: string;
+  dropdownLabel: string;
+  dropdownItems: any[];
   backgroundColor?: string;
 }
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: 'white',
-  '&:hover': {
-    backgroundColor: 'white',
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'grey',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'black',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '18ch',
-      '&:focus': {
-        width: '18ch',
-      },
-    },
-  },
-}));
-
 export const Header = ({
-  primary = false,
   title,
-  label,
-  button,
+  variant,
+  buttonLabel,
+  tabLabel1,
+  tabLabel2,
+  tabLabel3,
+  dropdownLabel,
+  dropdownItems,
   backgroundColor,
   ...props
 }: HeaderProps) => {
-  const mode = primary ? 'header--global' : `header--${label}`;
+  
   return (
-    <div className={['header', mode].join(' ')}>
-      {primary ? (
+    <div>
+      {(variant === 'global') ? (
           <>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static" style={{backgroundColor}}>
@@ -96,27 +52,22 @@ export const Header = ({
                       color="white"  
                       noWrap
                       component="div"
-                      sx={{ flexGrow: 0, display: { xs: 'none', sm: 'block' } }}>
+                      sx={{ flexGrow: 0, display: { xs: 'none', sm: 'block' } }}
+                      >
                       {new Date().toLocaleDateString()}
                       &nbsp; &nbsp;
                       {new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})}
                     </Typography>
-
-                    <Search>
-                      <SearchIconWrapper>
-                        <SearchIcon/>
-                      </SearchIconWrapper>
-                      <StyledInputBase
-                        placeholder="Search"
-                        inputProps={{ 'aria-label': 'search' }}
-                      />
-                    </Search>
+                    <Box
+                     sx={{marginTop: -4}}>
+                    <SearchBar variant='outlined' label='Search' disabled={false} error={false}></SearchBar>
+                    </Box>
                     <IconButton
                       size="large"
-                      aria-label="show 2 new notifications"
+                      aria-label="show new notifications icon"
                       color="inherit"
-                    >
-                      <Badge badgeContent={2} color="error">
+                      sx={{marginLeft: 3, marginRight: -1}}>
+                      <Badge>
                         <NotificationsIcon />
                       </Badge>
                     </IconButton>
@@ -127,22 +78,39 @@ export const Header = ({
         ) : (
           <>
             <Box sx={{ flexGrow: 1 }}>
-              <AppBar position="static" style={{backgroundColor}}>
+              <AppBar position="static" style={{backgroundColor}} sx={{paddingTop: 0.5, paddingBottom: 0.5}}>
                 <Toolbar variant="dense">
-                  <Typography variant="h6" color="black" component="div" sx={{ flexGrow: 1 }}>
-                    {title}
-                  </Typography>
-                    {button ? (  
-                      <Button variant="contained" sx={{ display: 'flex'}}>Action</Button>
-                      ) : (
-                    <>
-                    </>
-                  )}
-                </Toolbar>
 
+                  {(variant === 'tab') ? (
+                    <Box
+                      sx={{marginLeft: -3, height: 40, flexGrow: 1}}
+                      >
+                      <Tab label1={tabLabel1} label2={tabLabel2} label3={tabLabel3}></Tab>
+                    </Box>): (<></>)}
+
+                  {(variant === 'dropdown') ? (
+                  <Box
+                   sx={{marginLeft: -3, height: 50, marginTop: -0.6, flexGrow: 2}}
+                  >
+                  <Dropdown label={dropdownLabel} items={dropdownItems}></Dropdown>
+                  </Box>): (<></>)}
+                  
+                  {title ? (
+                  <Typography 
+                    variant="h5" 
+                    color="black" 
+                    component="div" 
+                    sx={{ flexGrow: 1 }}
+                    >
+                    {title}
+                    </Typography>): (<></>)}    
+
+                  {(variant === 'button' || variant === 'tab' || variant === 'dropdown') ? (
+                    <Button variant="contained" sx={{flexGrow: 0, position: 'relative'}}> {buttonLabel} </Button>) :(
+                    <></>)}
+                </Toolbar>
               </AppBar>
             </Box>
-            
           </>
         )}
     </div>
