@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Tab  from './Tab';
+import Tab from './Tab';
 
 export default {
 	title: 'Inputs/Tab',
@@ -9,8 +9,8 @@ export default {
 
 export const Primary = {
 	args: {
-	  label1: 'Tab',
-	  label2: 'Tab',
-	  label3: 'Tab',
-	},
-  };
+		label1: 'Tab',
+		label2: 'Tab',
+		label3: 'Tab'
+	}
+};
