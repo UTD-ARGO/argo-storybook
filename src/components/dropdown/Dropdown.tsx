@@ -23,7 +23,7 @@ export default function Dropdown({ label, items, ...props }: DropdownProps) {
 	return (
 		<Box className="dropdown-container">
 			<FormControl fullWidth>
-				<InputLabel id="dropdown-label">Age</InputLabel>
+				<InputLabel id="dropdown-label">{label}</InputLabel>
 				<Select
 					labelId="dropdown-label"
 					id="dropdown"
