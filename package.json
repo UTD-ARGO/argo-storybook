@@ -54,6 +54,7 @@
 		"@types/react-dom": "^18.0.10",
 		"babel-plugin-named-exports-order": "^0.0.2",
 		"chromatic": "^6.17.0",
+		"css-loader": "^6.7.3",
 		"postcss": "^8.4.21",
 		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
@@ -62,8 +63,10 @@
 		"rollup-plugin-peer-deps-external": "^2.2.4",
 		"rollup-plugin-postcss": "^4.0.2",
 		"rollup-plugin-typescript2": "^0.34.1",
+		"storybook-css-modules": "^1.0.8",
 		"typescript": "^4.9.5",
-		"webpack": "^5.75.0"
+		"webpack": "^5.75.0",
+		"react-scripts": "5.0.1"
 	},
 	"eslintConfig": {
 		"extends": [
