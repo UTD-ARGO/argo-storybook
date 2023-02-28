@@ -12,10 +12,11 @@ export interface BadgeProps {
 		| 'success'
 		| 'warning';
 	label: string;
+	size?: 'small' | 'medium';
 }
 
-const Badge = ({ variant, label, ...props }: BadgeProps) => {
-	return <Chip label={label} color={variant} />;
+const Badge = ({ variant, label, size, ...props }: BadgeProps) => {
+	return <Chip label={label} color={variant} size={size}/>;
 };
 
 export default Badge;

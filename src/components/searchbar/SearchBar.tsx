@@ -8,9 +8,10 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export interface SearchBarProps {
 	variant?: 'outlined' | 'contained' | 'underlined';
-	disabled: boolean;
+	disabled?: boolean;
 	label: string;
-	error: boolean;
+	error?: boolean;
+	className?: string;
 	onClick?: () => void;
 }
 
@@ -19,6 +20,7 @@ const SearchBar = ({
 	disabled = false,
 	label,
 	error = false,
+	className,
 	...props
 }: SearchBarProps) => {
 	const mode = `searchbar--${variant}`;
@@ -29,13 +31,14 @@ const SearchBar = ({
 				placeholder={label}
 				disabled={disabled}
 				error={error}
+				size="small"
 				variant={variant === 'outlined' ? 'outlined' : 'standard'}
 				InputProps={{
-					className: ['searchbar', mode].join(' '),
-					sx: errorStyle,
+					className: (className ? className: ['searchbar', mode].join(' ')),
+					sx: error ? errorStyle : null,
 					startAdornment: (
 						<InputAdornment position="start">
-							<SearchIcon sx={errorStyle} />
+							<SearchIcon sx={error ? errorStyle : null} />
 						</InputAdornment>
 					),
 					...(variant !== 'outlined' &&
