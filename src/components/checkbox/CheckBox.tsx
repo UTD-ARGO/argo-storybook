@@ -8,6 +8,8 @@ export interface CheckBoxProps {
 	disabled: boolean;
 	label: string;
 	error: boolean;
+	color?: string;
+	size?: 'small' | 'medium';
 	onClick?: () => void;
 }
 
@@ -16,17 +18,19 @@ const CheckBox = ({
 	disabled = false,
 	label,
 	error = false,
+	color = '#0000ff',
+	size = 'medium',
 	...props
 }: CheckBoxProps) => {
 	const style = {
-		'&.MuiCheckbox-root': { color: error ? '#C62828' : '#0000ff' }
+		'&.MuiCheckbox-root': { color: error ? '#C62828' : color }
 	};
 	const state = variant === 'partial' ? true : false;
 	return (
 		<FormGroup>
 			<FormControlLabel
 				disabled={disabled}
-				control={<Checkbox defaultChecked indeterminate={state} sx={style} />}
+				control={<Checkbox defaultChecked size={size} indeterminate={state} sx={style} />}
 				label={label}
 			/>
 		</FormGroup>
