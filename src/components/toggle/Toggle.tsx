@@ -1,15 +1,12 @@
 import React from 'react';
 import Switch from '@mui/material/Switch';
 
-interface ToggleProps {
+export interface ToggleProps {
 	disabled: boolean;
 }
 
-export const Toggle = ({
-  disabled=false,
-  ...props
-}: ToggleProps) => {
-  return (
-	<Switch disabled={disabled} defaultChecked />
-  );
+const Toggle = ({ disabled = false, ...props }: ToggleProps) => {
+	return <Switch disabled={disabled} defaultChecked />;
 };
+
+export default Toggle;

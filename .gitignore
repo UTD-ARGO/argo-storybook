@@ -12,6 +12,7 @@
 /build
 build-storybook.log
 dist
+storybook-static
 
 # misc
 .DS_Store

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {AppBar, Badge, Box, Toolbar, Button, IconButton, Typography, InputBase, TextField} from "@mui/material";
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { SearchBar } from '../searchbar/SearchBar';
+import SearchBar from '../searchbar/SearchBar';
 import Tab from '../tab/Tab';
 import './header.css'
 
-interface HeaderProps {
+export interface HeaderProps {
   variant: string;
   title?: string;
   buttonLabel?: string;
@@ -15,7 +15,7 @@ interface HeaderProps {
   backgroundColor?: string;
 }
 
-export const Header = ({
+const Header = ({
   title,
   variant,
   buttonLabel,
@@ -103,3 +103,5 @@ export const Header = ({
     </div>
   );
 };
+
+export default Header;
