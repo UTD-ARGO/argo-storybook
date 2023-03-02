@@ -44,12 +44,3 @@ Tab.args = {
   buttonLabel: "Action",
   backgroundColor: "white"
 };
-
-export const Dropdown = Template.bind({});
-Dropdown.args = {
-  variant: 'dropdown', 
-  dropdownLabel: "Age",
-  dropdownItems: ['Item 1', 'Item 2', 'Item 3'],
-  buttonLabel: "Action",
-  backgroundColor: "white"
-};

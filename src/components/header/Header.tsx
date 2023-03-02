@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { styled, alpha, createTheme, ThemeProvider } from '@mui/system';
 import {AppBar, Badge, Box, Toolbar, Button, IconButton, Typography, InputBase, TextField} from "@mui/material";
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { SearchBar } from '../searchbar/SearchBar';
-import Dropdown from '../dropdown/Dropdown';
 import Tab from '../tab/Tab';
 import './header.css'
 
@@ -14,8 +12,6 @@ interface HeaderProps {
   tabLabel1: string;
   tabLabel2: string;
   tabLabel3: string;
-  dropdownLabel: string;
-  dropdownItems: any[];
   backgroundColor?: string;
 }
 
@@ -26,8 +22,6 @@ export const Header = ({
   tabLabel1,
   tabLabel2,
   tabLabel3,
-  dropdownLabel,
-  dropdownItems,
   backgroundColor,
   ...props
 }: HeaderProps) => {
@@ -60,7 +54,7 @@ export const Header = ({
                     </Typography>
                     <Box
                      sx={{marginTop: -4}}>
-                    <SearchBar variant='outlined' label='Search' disabled={false} error={false}></SearchBar>
+                    <SearchBar variant='contained' label='Search' disabled={false} error={false}></SearchBar>
                     </Box>
                     <IconButton
                       size="large"
@@ -87,13 +81,6 @@ export const Header = ({
                       >
                       <Tab label1={tabLabel1} label2={tabLabel2} label3={tabLabel3}></Tab>
                     </Box>): (<></>)}
-
-                  {(variant === 'dropdown') ? (
-                  <Box
-                   sx={{marginLeft: -3, height: 50, marginTop: -0.6, flexGrow: 2}}
-                  >
-                  <Dropdown label={dropdownLabel} items={dropdownItems}></Dropdown>
-                  </Box>): (<></>)}
                   
                   {title ? (
                   <Typography 
@@ -105,7 +92,7 @@ export const Header = ({
                     {title}
                     </Typography>): (<></>)}    
 
-                  {(variant === 'button' || variant === 'tab' || variant === 'dropdown') ? (
+                  {(variant === 'button' || variant === 'tab') ? (
                     <Button variant="contained" sx={{flexGrow: 0, position: 'relative'}}> {buttonLabel} </Button>) :(
                     <></>)}
                 </Toolbar>

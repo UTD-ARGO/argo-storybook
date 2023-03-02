@@ -4,12 +4,3 @@
   align-items: center;
   justify-content: space-between;
 }
-
-.header-searchbar {
-  background-color: white;
-  margin-top: 30px;
-}
-
-.header-dropdown {
-  width: 350px;
-}
