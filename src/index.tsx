@@ -6,6 +6,7 @@ import Tab from './components/tab/Tab';
 import Toggle from './components/toggle/Toggle';
 import CheckBox from './components/checkbox/CheckBox';
 import RadioButton from './components/radiobutton/RadioButton';
+import Header from './components/header/Header'
 
 import './index.css';
 
@@ -17,5 +18,6 @@ export {
 	Tab,
 	Toggle,
 	CheckBox,
-	RadioButton
+	RadioButton,
+	Header
 };
