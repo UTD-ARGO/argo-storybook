@@ -5,9 +5,9 @@ import Checkbox from '@mui/material/Checkbox';
 
 export interface CheckBoxProps {
 	variant?: 'default' | 'partial';
-	disabled: boolean;
+	disabled?: boolean;
 	label: string;
-	error: boolean;
+	error?: boolean;
 	color?: string;
 	size?: 'small' | 'medium';
 	onClick?: () => void;

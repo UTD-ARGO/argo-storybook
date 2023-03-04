@@ -2,7 +2,7 @@ import React from 'react';
 import Switch from '@mui/material/Switch';
 
 export interface ToggleProps {
-	disabled: boolean;
+	disabled?: boolean;
 	color?: string;
 	size?: 'small' | 'medium';
 }

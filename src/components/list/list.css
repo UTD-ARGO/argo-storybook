@@ -1,0 +1,18 @@
+.list--default {
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.list--checklist {
+	padding-left: 10px;
+}
+
+.list--togglelist {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.list--radiolist {
+	width: 201px;
+}
