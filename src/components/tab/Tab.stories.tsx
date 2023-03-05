@@ -9,8 +9,6 @@ export default {
 
 export const Primary = {
 	args: {
-		label1: 'Tab',
-		label2: 'Tab',
-		label3: 'Tab'
+		labels: ['Tab1', 'Tab2', 'Tab3']
 	}
 };
