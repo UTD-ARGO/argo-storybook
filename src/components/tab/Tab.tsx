@@ -24,7 +24,12 @@ export default function Tab({ labels, ...props }: TabProps) {
 			{labels &&
 				labels.length > 0 &&
 				labels.map((label, index) => (
-					<MUITab value={index} label={label} sx={{ textTransform: 'none' }} />
+					<MUITab
+						key={label}
+						value={index}
+						label={label}
+						sx={{ textTransform: 'none' }}
+					/>
 				))}
 		</MUITabs>
 	);
