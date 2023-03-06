@@ -65,5 +65,9 @@ export const HelloWorld = Template.bind({});
 HelloWorld.args = {
 	variant: 'primary',
 	label: 'Hello World!',
-	onClick: () => document.append("Hi there!")
+	onClick: () => {
+		const hello = document.createElement("p");
+		hello.textContent = "Hi there!";
+		document.body.append(hello);
+	}
 }
