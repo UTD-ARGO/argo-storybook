@@ -8,6 +8,9 @@ import CheckBox from './components/checkbox/CheckBox';
 import RadioButton from './components/radiobutton/RadioButton';
 import Header from './components/header/Header';
 import Card from './components/card/Card';
+import SummaryCard from './components/card/SummaryCard';
+import ChartCard from './components/card/ChartCard';
+import CriteriaCard from './components/card/CriteriaCard';
 
 import './index.css';
 
@@ -21,5 +24,8 @@ export {
 	CheckBox,
 	RadioButton,
 	Header,
-	Card
+	Card,
+	SummaryCard,
+	ChartCard,
+	CriteriaCard
 };

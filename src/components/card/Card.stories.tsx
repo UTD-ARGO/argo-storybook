@@ -1,9 +1,12 @@
 import React from 'react';
-import Card from './Card';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import SearchBar from '../searchbar/SearchBar';
-import { IconButton } from '@mui/material';
-import { FilterList } from '@mui/icons-material';
+import { IconButton, TextField, InputAdornment, Button } from '@mui/material';
+import { FilterList, Search } from '@mui/icons-material';
+
+import Card from './Card';
+import ChartCard from './ChartCard';
+import SummaryCard from './SummaryCard';
+import CriteriaCard, { CriData } from './CriteriaCard';
 
 export default {
 	title: 'Surfaces/Card',
@@ -13,61 +16,88 @@ export default {
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args}></Card>;
 
 export const Default = Template.bind({});
-const defaultChildren: React.ReactNode = (
-	<div style={{ height: '200px' }}>Content goes here</div>
+Default.args = { style: { width: 400, height: 400 } };
+
+export const Sectioned = Template.bind({});
+const sectionChildren: React.ReactNode = (
+	<div style={{ height: '200px' }}>Body</div>
 );
-Default.args = {
-	variant: 'default',
-	title: 'Default',
-	children: defaultChildren
+const sectionFooter: React.ReactNode = <p style={{ margin: '0px' }}>Footer</p>;
+Sectioned.args = {
+	title: 'Title',
+	children: sectionChildren,
+	footerBar: sectionFooter
 };
 
-export const Criteria = Template.bind({});
-const criData = [
-	{ strength: 'A', description: 'Description A', document: 'AA' },
-	{ strength: 'B', description: 'Description B', document: 'BB' },
-	{ strength: 'C', description: 'Description C', document: 'CC' }
+export const Chart = ChartCard;
+
+export const Summary = SummaryCard;
+
+const data: CriData[] = [
+	{ str: 'A', desc: 'Description A', doc: 'AA AA' },
+	{ str: 'B', desc: 'Description B', doc: 'BB BB' },
+	{ str: 'C', desc: 'Description C', doc: 'CC CC' }
 ];
+const TemplateCri: ComponentStory<typeof CriteriaCard> = (args) => (
+	<CriteriaCard {...args} />
+);
+export const Criteria = TemplateCri.bind({});
 Criteria.args = {
-	variant: 'criteria',
-	title: 'Criteria',
-	criteriaData: criData,
-	style: { display: 'inline-block' }
-};
-
-export const Summary = Template.bind({});
-Summary.args = {
-	variant: 'summary',
-	title: 'Summary',
-	tabs: ['Initial Auth', 'Case History', 'Chart Check'],
-	children: defaultChildren,
-	style: { display: 'inline-block' }
-};
-
-export const Chart = Template.bind({});
-Chart.args = {
-	variant: 'chart',
-	title: 'Chart Documents',
-	children: defaultChildren,
-	style: { display: 'inline-block' }
+	data: data
 };
 
 export const TimeSeries = Template.bind({});
-const title: React.ReactNode = (
-	<div style={{ display: 'flex', flexDirection: 'row' }}>
-		<h4>Time Series</h4>
-		<SearchBar label="Search Stocks" variant="outlined"></SearchBar>
-	</div>
-);
-const timeTitleButtons: React.ReactNode = (
-	<IconButton size="small">
-		<FilterList />
-	</IconButton>
-);
 TimeSeries.args = {
-	variant: 'default',
-	title: title,
-	titleButtons: timeTitleButtons,
-	children: defaultChildren,
+	title: 'Time Series',
+	titleBar: (
+		<div
+			style={{
+				width: '100%',
+				display: 'flex',
+				flexDirection: 'row',
+				justifyContent: 'space-between'
+			}}
+		>
+			<TextField
+				id="outlined-basic"
+				placeholder="Search Stocks"
+				variant="outlined"
+				size="small"
+				style={{ marginLeft: '20px' }}
+				InputProps={{
+					startAdornment: (
+						<InputAdornment position="start">
+							<Search />
+						</InputAdornment>
+					)
+				}}
+			/>
+			<IconButton size="small">
+				<FilterList />
+			</IconButton>
+		</div>
+	),
+	children: sectionChildren,
 	style: { display: '' }
+};
+
+export const Dialog = Template.bind({});
+Dialog.args = {
+	title: 'Dialog title',
+	footerBar: (
+		<div
+			style={{
+				width: '100%',
+				display: 'flex',
+				flexDirection: 'row',
+				justifyContent: 'space-between',
+				margin: '0px'
+			}}
+		>
+			<Button variant="text">Cancel</Button>
+			<Button variant="contained">Submit</Button>
+		</div>
+	),
+	style: { width: '300px' },
+	children: <p style={{ margin: 'auto', textAlign: 'center' }}>Modal Message</p>
 };
