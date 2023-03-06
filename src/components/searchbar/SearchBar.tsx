@@ -26,7 +26,7 @@ const SearchBar = ({
 	const mode = `searchbar--${variant}`;
 	const errorStyle = { color: error ? '#C62828' : null };
 	return (
-		<Box component="form">
+		<Box component="form" sx={{ margin: '0px' }}>
 			<TextField
 				placeholder={label}
 				disabled={disabled}
@@ -34,7 +34,7 @@ const SearchBar = ({
 				size="small"
 				variant={variant === 'outlined' ? 'outlined' : 'standard'}
 				InputProps={{
-					className: (className ? className: ['searchbar', mode].join(' ')),
+					className: className ? className : ['searchbar', mode].join(' '),
 					sx: error ? errorStyle : null,
 					startAdornment: (
 						<InputAdornment position="start">
