@@ -2,7 +2,7 @@ import { SxProps } from '@mui/material/styles';
 import MUIButton from '@mui/material/Button';
 import './button.css';
 
-interface ButtonProps {
+export interface ButtonProps {
     variant?: 'primary' | 'secondary' | 'quiet' | 'primary-danger' | 'secondary-danger';
     color?: string;
     hoverColor?: string;
@@ -102,3 +102,5 @@ export const Button = ({
         </MUIButton>
     );
 };
+
+export default Button;

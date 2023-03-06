@@ -1,19 +1,22 @@
 import React from 'react';
 import './badge.css';
+import Chip from '@mui/material/Chip';
 
-interface BadgeProps {
-	variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+export interface BadgeProps {
+	variant?:
+		| 'default'
+		| 'primary'
+		| 'secondary'
+		| 'error'
+		| 'info'
+		| 'success'
+		| 'warning';
 	label: string;
-	onClick?: () => void;
+	size?: 'small' | 'medium';
 }
 
-export const Badge = ({ variant, label, ...props }: BadgeProps) => {
-	const mode = `badge--${variant}`;
-	return (
-		<h1>
-			<span className={['badge', mode].join(' ')} {...props}>
-				{label}
-			</span>
-		</h1>
-	);
+const Badge = ({ variant, label, size, ...props }: BadgeProps) => {
+	return <Chip label={label} color={variant} size={size}/>;
 };
+
+export default Badge;

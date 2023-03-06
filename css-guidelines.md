@@ -1,5 +1,12 @@
 # CSS Guidelines
 
+## Overriding component styles
+1. If you have a simple enough component and it makes sense to have color/size props, you should add them (use your discretion)
+2. Otherwise, you can make className a prop so user can just override that component directly (this is still a wonky solution since there could be multiple sub or nested components)
+2. If you are working on one of the 3 UIs and you can't override the component CSS/you want to have a more specific prop to make your life easier, tell the person who made the component to make the changes
+
+## Class naming scheme
+
 - Name classes according to the following structure:
   `.type--variant:state`
   - type

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SearchBar } from './SearchBar';
+import SearchBar from './SearchBar';
 
 export default {
 	title: 'Inputs/SearchBar',
@@ -15,17 +15,17 @@ const Template: ComponentStory<typeof SearchBar> = (args) => (
 export const Outlined = Template.bind({});
 Outlined.args = {
 	variant: 'outlined',
-	label: 'Outlined Search'
+	label: 'Search'
 };
 
 export const Contained = Template.bind({});
 Contained.args = {
 	variant: 'contained',
-	label: 'Contained Search'
+	label: 'Search'
 };
 
 export const Underlined = Template.bind({});
 Underlined.args = {
 	variant: 'underlined',
-	label: 'Underlined Search'
+	label: 'Search'
 };
