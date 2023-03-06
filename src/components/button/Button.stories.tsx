@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Button } from './Button';
@@ -7,8 +6,9 @@ export default {
 	title: 'Inputs/Button',
 	component: Button,
 	argTypes: {
-		backgroundColor: { control: 'color' }
-	}
+		color: { control: { type: 'color' } },
+		hoverColor: { control: { type: 'color' } }
+    }
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
@@ -29,3 +29,41 @@ Quiet.args = {
 	variant: 'quiet',
 	label: 'Button'
 };
+
+export const PrimaryDanger = Template.bind({});
+PrimaryDanger.args = {
+	variant: 'primary-danger',
+	label: 'Button'
+};
+
+export const SecondaryDanger = Template.bind({});
+SecondaryDanger.args = {
+	variant: 'secondary-danger',
+	label: 'Button'
+};
+
+export const DisabledButton = Template.bind({});
+DisabledButton.args = {
+	variant: 'quiet',
+	label: 'Button',
+	disabled: true
+};
+
+export const Small = Template.bind({});
+Small.args = {
+	size: 'small',
+	label: 'Button'
+};
+
+export const Large = Template.bind({});
+Large.args = {
+	size: 'large',
+	label: 'Button'
+};
+
+export const HelloWorld = Template.bind({});
+HelloWorld.args = {
+	variant: 'primary',
+	label: 'Hello World!',
+	onClick: () => document.append("Hi there!")
+}
