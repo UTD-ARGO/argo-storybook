@@ -1,6 +1,5 @@
 import { SxProps } from '@mui/material/styles';
 import MUIButton from '@mui/material/Button';
-import './button.css';
 
 export interface ButtonProps {
     variant?: 'primary' | 'secondary' | 'quiet' | 'primary-danger' | 'secondary-danger';
@@ -8,6 +7,8 @@ export interface ButtonProps {
     hoverColor?: string;
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;
+    startIcon?: React.ReactNode;
+    endIcon?: React.ReactNode;
     label: string;
     onClick?: () => void;
 }
@@ -22,7 +23,7 @@ const brandColors = {
     disabled: '#909090'
 };
 
-export const Button = ({
+const Button = ({
     variant = 'secondary',
     color,
     hoverColor,
