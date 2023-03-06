@@ -7,6 +7,7 @@ import Toggle from './components/toggle/Toggle';
 import CheckBox from './components/checkbox/CheckBox';
 import RadioButton from './components/radiobutton/RadioButton';
 import Header from './components/header/Header'
+import Menu from './components/menu/Menu'
 
 import './index.css';
 
@@ -19,5 +20,6 @@ export {
 	Toggle,
 	CheckBox,
 	RadioButton,
-	Header
+	Header,
+	Menu
 };
