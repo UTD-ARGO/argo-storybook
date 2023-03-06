@@ -6,7 +6,8 @@ import Tab from './components/tab/Tab';
 import Toggle from './components/toggle/Toggle';
 import CheckBox from './components/checkbox/CheckBox';
 import RadioButton from './components/radiobutton/RadioButton';
-import Header from './components/header/Header'
+import Header from './components/header/Header';
+import TextField from './components/textfield/TextField';
 
 import './index.css';
 
