@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from './Header';
 
 export default {
-	title: 'Inputs/Header',
+	title: 'Surfaces/Header',
 	component: Header,
 	argTypes: {
 		backgroundColor: { control: 'color' }

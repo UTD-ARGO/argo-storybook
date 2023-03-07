@@ -19,7 +19,11 @@ export default function Tab({ labels, ...props }: TabProps) {
 			textColor="primary"
 			indicatorColor="primary"
 			aria-label="primary tabs"
-			sx={{ borderBottom: 1, borderColor: 'divider' }}
+			sx={{
+				borderBottom: 1,
+				borderColor: 'divider',
+				display: 'inline-flex'
+			}}
 		>
 			{labels &&
 				labels.length > 0 &&
