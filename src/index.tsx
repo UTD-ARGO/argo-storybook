@@ -6,9 +6,12 @@ import Tab from './components/tab/Tab';
 import Toggle from './components/toggle/Toggle';
 import CheckBox from './components/checkbox/CheckBox';
 import RadioButton from './components/radiobutton/RadioButton';
-import Header from './components/header/Header'
+import Header from './components/header/Header';
+import Card from './components/card/Card';
+import SummaryCard from './components/card/SummaryCard';
+import ChartCard from './components/card/ChartCard';
+import CriteriaCard from './components/card/CriteriaCard';
 import Menu from './components/menu/Menu'
-
 import './index.css';
 
 export {
@@ -21,5 +24,9 @@ export {
 	CheckBox,
 	RadioButton,
 	Header,
+	Card,
+	SummaryCard,
+	ChartCard,
+	CriteriaCard,
 	Menu
 };
