@@ -33,7 +33,9 @@ export default function Dropdown({ label, items, ...props }: DropdownProps) {
 					className="dropdown"
 				>
 					{items.map((item) => (
-						<MenuItem value={item}>{item}</MenuItem>
+						<MenuItem key={item} value={item}>
+							{item}
+						</MenuItem>
 					))}
 				</Select>
 			</FormControl>

@@ -7,7 +7,10 @@ import Toggle from './components/toggle/Toggle';
 import CheckBox from './components/checkbox/CheckBox';
 import RadioButton from './components/radiobutton/RadioButton';
 import Header from './components/header/Header';
-import TextField from './components/textfield/TextField';
+import Card from './components/card/Card';
+import SummaryCard from './components/card/SummaryCard';
+import ChartCard from './components/card/ChartCard';
+import CriteriaCard from './components/card/CriteriaCard';
 
 import './index.css';
 
@@ -20,5 +23,9 @@ export {
 	Toggle,
 	CheckBox,
 	RadioButton,
-	Header
+	Header,
+	Card,
+	SummaryCard,
+	ChartCard,
+	CriteriaCard
 };

@@ -3,14 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Tab from './Tab';
 
 export default {
-	title: 'Inputs/Tab',
+	title: 'Navigation/Tab',
 	component: Tab
 } as ComponentMeta<typeof Tab>;
 
 export const Primary = {
 	args: {
-		label1: 'Tab',
-		label2: 'Tab',
-		label3: 'Tab'
+		labels: ['Tab1', 'Tab2', 'Tab3']
 	}
 };
