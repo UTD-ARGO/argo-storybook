@@ -14,5 +14,12 @@ const Template: ComponentStory<typeof TextField> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-	label: 'Label'
+	label: 'Label',
+	variant: 'default'
+};
+
+export const CalendarIcon = Template.bind({});
+CalendarIcon.args = {
+	label: 'Label',
+	variant: 'calendar-icon'
 };
