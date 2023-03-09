@@ -5,37 +5,29 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-
-
-export interface AccordionObj {
-  header: string,
-  details: string
-}
+import { PropsWithChildren } from "react";
 
 export interface AccordionProps {
-  accordionList: AccordionObj[];
+  header: string,
+  children: React.ReactNode
 }
 
-export default function SimpleAccordion({ accordionList }: AccordionProps) {
+export default function SimpleAccordion(props: PropsWithChildren<AccordionProps>) {
   return (
-    <div>
-      {accordionList.map((acc, index) => (
-        <Accordion>
+        <Accordion sx={{width: '374px'}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
-            aria-controls={`panel${index}-content`}
-            id={`panel${index}-header`}
+            aria-controls={`panel${props.header}-content`}
+            id={`panel${props.header}-header`}
           >
-            <Typography>{acc.header}</Typography>
+            <Typography>{props.header}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              {acc.details}
-            </Typography>
+            {/* <Typography>
+              {details}
+            </Typography> */}
+            {props.children}
           </AccordionDetails>
         </Accordion>
-      ))}
-    </div>
   );
 }
