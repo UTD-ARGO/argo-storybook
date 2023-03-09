@@ -23,9 +23,6 @@ export default function SimpleAccordion(props: PropsWithChildren<AccordionProps>
             <Typography>{props.header}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            {/* <Typography>
-              {details}
-            </Typography> */}
             {props.children}
           </AccordionDetails>
         </Accordion>
