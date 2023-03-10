@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Menu from './Menu';
 
 export default {
-  title: 'Inputs/Menu',
+  title: 'Navigation/Menu',
   component: Menu,
 } as ComponentMeta<typeof Menu>;
 
