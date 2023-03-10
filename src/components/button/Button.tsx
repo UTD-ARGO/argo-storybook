@@ -10,7 +10,7 @@ export interface ButtonProps {
     startIcon?: React.ReactNode;
     endIcon?: React.ReactNode;
     label: string;
-    onClick?: (event:any) => void;
+    onClick?: (event:React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const brandColors = {
