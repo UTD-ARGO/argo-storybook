@@ -12,6 +12,7 @@ import SummaryCard from './components/card/SummaryCard';
 import ChartCard from './components/card/ChartCard';
 import CriteriaCard from './components/card/CriteriaCard';
 import List from './components/list/List';
+import Menu from './components/menu/Menu';
 
 import './index.css';
 
@@ -29,5 +30,6 @@ export {
 	SummaryCard,
 	ChartCard,
 	CriteriaCard,
-	List
+	List,
+	Menu
 };
