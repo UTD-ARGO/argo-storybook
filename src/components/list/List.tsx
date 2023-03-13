@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import CheckBox from '../checkbox/CheckBox';
+import Checkbox from '../checkbox/Checkbox';
 import RadioButton from '../radiobutton/RadioButton';
 import Toggle from '../toggle/Toggle';
 import './list.css';
@@ -39,7 +39,7 @@ function variantComponent(variant:string, listItems:any[], color:string, bgcolor
 			{listItems.map((item) => (
 				<ListItem sx={style} value={item} disablePadding className={mode}>
 					{(variant === 'default') ? <div>{item}</div> : null}
-					{(variant === 'checklist') ? <CheckBox label={item} color={color}/> : null}
+					{(variant === 'checklist') ? <Checkbox label={item} color={color}/> : null}
 					{(variant === 'togglelist') ? <div><Toggle color={color}/>{item}</div> : null} 
 				</ListItem>
 			))}

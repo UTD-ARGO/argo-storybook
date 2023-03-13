@@ -1,0 +1,13 @@
+.checkboxDiv {
+	display: flex;
+	width: 300px;
+}
+
+.largeFieldDiv {
+	padding-left: 2px;
+}
+
+.formText {
+	padding-left: 10px;
+	font-weight: bold;
+}

@@ -12,17 +12,19 @@ import './Dropdown.css';
 export interface DropdownProps {
 	label: string;
 	items: any[];
+	size?: 'small' | 'medium';
+	width?: number;
 }
 
-export default function Dropdown({ label, items, ...props }: DropdownProps) {
+export default function Dropdown({ label, items, size, width = 210, ...props }: DropdownProps) {
 	const [item, selectItem] = React.useState('');
 	const handleChange = (event: SelectChangeEvent) => {
 		selectItem(event.target.value);
 	};
 
 	return (
-		<Box className="dropdown-container">
-			<FormControl fullWidth>
+		<Box sx={{ width: {width} }}>
+			<FormControl fullWidth size={size}>
 				<InputLabel id="dropdown-label">{label}</InputLabel>
 				<Select
 					labelId="dropdown-label"
