@@ -8,7 +8,7 @@ export interface TextFieldProps {
 	variant?: 'default' | 'calendar-icon';
 	label?: string;
 	maxLength?: number;
-	maxWidth?: number;
+	width?: number;
 	disabled?: boolean;
 	error?: boolean;
 	helperText?: string;
@@ -18,7 +18,7 @@ export interface TextFieldProps {
 	required?: boolean;
 	size?: 'small' | 'medium';
 	value?: any;
-	onChange?: () => void;
+	onChange?: (e: any) => void;
 	onClick?: () => void;
 }
 
@@ -26,7 +26,7 @@ const TextField = ({
 	variant,
 	label,
 	maxLength,
-	maxWidth=201,
+	width = 201,
 	disabled,
 	error,
 	helperText,
@@ -41,7 +41,7 @@ const TextField = ({
 	...props
 }: TextFieldProps) => {
 	return (
-	<Box sx={{ width: '100%', maxWidth: {maxWidth} }}>
+	<Box sx={{ width: {width} }}>
 		<MUITextField 
 		fullWidth
 		label={label} 

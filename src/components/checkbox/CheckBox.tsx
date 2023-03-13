@@ -1,27 +1,30 @@
-import React from 'react';
+import * as React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import MUICheckbox from '@mui/material/Checkbox';
 
-export interface CheckBoxProps {
+export interface CheckboxProps {
+	checked?: boolean;
 	variant?: 'default' | 'partial';
 	disabled?: boolean;
 	label: string;
 	error?: boolean;
 	color?: string;
 	size?: 'small' | 'medium';
-	onClick?: () => void;
+	onChange?: (e: any) => void;
 }
 
-const CheckBox = ({
+const Checkbox = ({
+	checked,
 	variant,
 	disabled = false,
 	label,
 	error = false,
 	color = '#0000ff',
 	size = 'medium',
+	onChange,
 	...props
-}: CheckBoxProps) => {
+}: CheckboxProps) => {
 	const style = {
 		'&.MuiCheckbox-root': { color: error ? '#C62828' : color }
 	};
@@ -30,11 +33,16 @@ const CheckBox = ({
 		<FormGroup>
 			<FormControlLabel
 				disabled={disabled}
-				control={<Checkbox defaultChecked size={size} indeterminate={state} sx={style} />}
+				control={<MUICheckbox 
+					onChange={onChange}
+					checked={checked} 
+					size={size} 
+					indeterminate={state} 
+					sx={style} />}
 				label={label}
 			/>
 		</FormGroup>
 	);
 };
 
-export default CheckBox;
+export default Checkbox;

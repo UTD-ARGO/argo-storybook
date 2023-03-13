@@ -4,13 +4,15 @@ import Dropdown from './components/dropdown/Dropdown';
 import SearchBar from './components/searchbar/SearchBar';
 import Tab from './components/tab/Tab';
 import Toggle from './components/toggle/Toggle';
-import CheckBox from './components/checkbox/CheckBox';
+import Checkbox from './components/checkbox/Checkbox';
 import RadioButton from './components/radiobutton/RadioButton';
 import Header from './components/header/Header';
 import Card from './components/card/Card';
 import SummaryCard from './components/card/SummaryCard';
 import ChartCard from './components/card/ChartCard';
 import CriteriaCard from './components/card/CriteriaCard';
+import Form from './components/form/Form';
+import List from './components/list/List';
 
 import './index.css';
 
@@ -21,7 +23,7 @@ export {
 	SearchBar,
 	Tab,
 	Toggle,
-	CheckBox,
+	Checkbox,
 	RadioButton,
 	Header,
 	Card,
