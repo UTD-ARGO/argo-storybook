@@ -11,8 +11,9 @@ import Card from './components/card/Card';
 import SummaryCard from './components/card/SummaryCard';
 import ChartCard from './components/card/ChartCard';
 import CriteriaCard from './components/card/CriteriaCard';
-import Form from './components/form/Form';
 import List from './components/list/List';
+import Menu from './components/menu/Menu';
+import Form from './components/form/Form';
 
 import './index.css';
 
@@ -29,5 +30,8 @@ export {
 	Card,
 	SummaryCard,
 	ChartCard,
-	CriteriaCard
+	CriteriaCard,
+	List,
+	Menu,
+	Form
 };
