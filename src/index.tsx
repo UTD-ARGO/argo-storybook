@@ -10,6 +10,7 @@ export { default as Checkbox } from './components/checkbox/Checkbox';
 export { default as Dropdown } from './components/dropdown/Dropdown';
 export { default as Form } from './components/form/Form';
 export { default as Header } from './components/header/Header';
+export { default as LeftNavigation } from './components/leftnav/LeftNavigation';
 export { default as List } from './components/list/List';
 export { default as Menu } from './components/menu/Menu';
 export { default as RadioButton } from './components/radiobutton/RadioButton';
