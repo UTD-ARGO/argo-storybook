@@ -18,5 +18,6 @@ export { default as SearchBar } from './components/searchbar/SearchBar';
 export { default as Tab } from './components/tab/Tab';
 export { default as TextField } from './components/textfield/TextField';
 export { default as Toggle } from './components/toggle/Toggle';
+export { default as Image } from './components/image/Image';
 
 import './index.css';
