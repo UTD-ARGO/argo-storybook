@@ -8,6 +8,7 @@ export { default as ChartCard } from './components/card/ChartCard';
 export { default as CriteriaCard } from './components/card/CriteriaCard';
 export { default as Checkbox } from './components/checkbox/Checkbox';
 export { default as Dropdown } from './components/dropdown/Dropdown';
+export { default as FilterChip } from './components/filterchip/FilterChip';
 export { default as Form } from './components/form/Form';
 export { default as Header } from './components/header/Header';
 export { default as LeftNavigation } from './components/leftnav/LeftNavigation';
