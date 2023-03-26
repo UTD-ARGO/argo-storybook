@@ -31,6 +31,17 @@ const Header = ({
 	backgroundColor,
 	...props
 }: HeaderProps) => {
+	const [time, setTime] = React.useState(Date.now());
+
+	React.useEffect(() => {
+		const timer = setInterval(() => {
+			setTime(Date.now());
+		}, 1000);
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
+
 	return (
 		<div>
 			{variant === 'global' ? (
@@ -46,21 +57,26 @@ const Header = ({
 								>
 									{title}
 								</Typography>
-								<Typography
-									variant="body2"
-									color="white"
-									noWrap
-									component="div"
-									sx={{ flexGrow: 0, display: { xs: 'none', sm: 'block' } }}
+								<div
+									style={{
+										marginRight: '16px',
+										gap: '10px',
+										display: 'flex',
+										flexDirection: 'row',
+										fontSize: '16px',
+										lineHeight: '24px',
+										letterSpacing: '.5px'
+									}}
 								>
-									{new Date().toLocaleDateString()}
-									&nbsp; &nbsp;
-									{new Date().toLocaleTimeString(navigator.language, {
-										hour: '2-digit',
-										minute: '2-digit'
-									})}
-								</Typography>
-								<Box sx={{ marginTop: -4 }}>
+									<p>{new Date(time).toLocaleDateString()}</p>
+									<p>
+										{new Date(time).toLocaleTimeString(navigator.language, {
+											hour: '2-digit',
+											minute: '2-digit'
+										})}
+									</p>
+								</div>
+								<Box>
 									<SearchBar
 										variant="contained"
 										label="Search"
