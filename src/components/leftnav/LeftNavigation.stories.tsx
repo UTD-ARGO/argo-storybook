@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import LeftNavigation, { LNItem } from './LeftNavigation';
@@ -9,18 +7,20 @@ import {
 	Email,
 	Leaderboard,
 	Info,
-	HelpOutline,
-	AccountCircleOutlined
+	HelpOutline
 } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
 
 export default {
 	title: 'Navigation/Left Navigation Menu',
 	component: LeftNavigation
 } as ComponentMeta<typeof LeftNavigation>;
 
+// Left Nav fits to 100% height of parent container
+// Used 90vh to show example story
 const Template: ComponentStory<typeof LeftNavigation> = (args) => (
-	<LeftNavigation {...args} />
+	<div style={{ height: '90vh' }}>
+		<LeftNavigation {...args} />
+	</div>
 );
 
 export const SideRail = Template.bind({});
@@ -34,10 +34,5 @@ const items = [
 ] as LNItem[];
 
 SideRail.args = {
-	listItems: items,
-	footerItem: (
-		<IconButton>
-			<AccountCircleOutlined fontSize="large" />
-		</IconButton>
-	)
+	listItems: items
 };

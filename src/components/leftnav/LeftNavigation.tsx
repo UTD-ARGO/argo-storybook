@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import './LeftNavigation.css';
 
-import { Drawer } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { AccountCircleOutlined } from '@mui/icons-material';
 
 export interface LNProps {
 	listItems?: LNItem[];
-	footerItem?: React.ReactNode;
+	onFooterClick?: () => void;
 }
 
 export interface LNItem {
 	label?: string;
 	icon?: React.ReactNode;
-	onClick: () => void;
+	onClick?: () => void;
 }
 
 interface LNItemProps extends LNItem {
-	selected: boolean;
+	selected?: boolean;
 }
 
 const ListItem = (props: LNItemProps) => {
@@ -33,31 +34,31 @@ const ListItem = (props: LNItemProps) => {
 const LeftNavigation = (props: LNProps) => {
 	const [selected, setSelected] = useState(0);
 
-	const handleSelect = (index: number, callback: () => void) => {
+	const handleSelect = (index: number, callback?: () => void) => {
 		setSelected(index);
-		callback();
+		if (callback) callback();
 	};
 
 	return (
-		<Drawer variant="permanent">
-			<div className="leftNav">
-				<div>
-					{props.listItems?.map((item: LNItem, index: number) => {
-						return (
-							<ListItem
-								key={index}
-								{...item}
-								selected={selected === index}
-								onClick={() => handleSelect(index, item.onClick)}
-							/>
-						);
-					})}
-				</div>
-				{props.footerItem && (
-					<a className="leftNavFooter">{props.footerItem}</a>
-				)}
+		<div className="leftNav">
+			<div>
+				{props.listItems?.map((item: LNItem, index: number) => {
+					return (
+						<ListItem
+							key={index}
+							{...item}
+							selected={selected === index}
+							onClick={() => handleSelect(index, item.onClick)}
+						/>
+					);
+				})}
 			</div>
-		</Drawer>
+			<a className="leftNavFooter">
+				<IconButton onClick={props.onFooterClick}>
+					<AccountCircleOutlined fontSize="large" />
+				</IconButton>
+			</a>
+		</div>
 	);
 };
 
