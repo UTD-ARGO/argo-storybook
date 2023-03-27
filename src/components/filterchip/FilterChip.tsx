@@ -3,17 +3,23 @@ import './FilterChip.css';
 
 export interface FilterChipProps {
 	value?: string;
+	onClick?: () => void;
 	onClose?: () => void;
 }
 
 const FilterChip = (props: FilterChipProps) => {
+	const handleClose = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		props.onClose && props.onClose();
+	};
+
 	return (
-		<div className="filterChip">
+		<a className="filterChip" onClick={props.onClick}>
 			<p>{props.value}</p>
-			<a onClick={props.onClose}>
+			<a onClick={handleClose}>
 				<Close />
 			</a>
-		</div>
+		</a>
 	);
 };
 
