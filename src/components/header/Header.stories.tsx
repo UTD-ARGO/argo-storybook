@@ -20,6 +20,14 @@ Global.args = {
 	backgroundColor: 'steelblue'
 };
 
+export const GlobalTabs = Template.bind({});
+GlobalTabs.args = {
+	title: 'Title',
+	variant: 'global-tabs',
+	tabs: ['MOVIES', 'TV SHOWS', 'NEWS', 'NAME'],
+	backgroundColor: 'steelblue'
+};
+
 export const Basic = Template.bind({});
 Basic.args = {
 	title: 'Title',
