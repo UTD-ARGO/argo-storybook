@@ -1,0 +1,35 @@
+{
+	"name": "@utd-argo/ux-master-library",
+	"description": "ARGO UX Master Component Library",
+	"private": false,
+	"main": "index.js",
+	"module": "index.esm.js",
+	"types": "index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/UTD-ARGO/argo-storybook.git"
+	},
+	"bugs": {
+		"url": "https://github.com/UTD-ARGO/argo-storybook/issues"
+	},
+	"homepage": "https://github.com/UTD-ARGO/argo-storybook#readme",
+	"peerDependencies": {
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@mui/icons-material": "^5.11.9",
+		"@mui/material": "^5.11.9",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@mui/icons-material": "^5.11.9",
+		"@mui/material": "^5.11.9",
+		"@types/react": "^18.0.27",
+		"@types/react-dom": "^18.0.10",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.9.5"
+	}
+}

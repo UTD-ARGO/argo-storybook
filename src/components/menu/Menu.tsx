@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box, MenuItem, FormControl, RadioGroup, FormControlLabel} from '@mui/material';
 import MUIMenu from '@mui/material/Menu';
 import RadioButton from '../radiobutton/RadioButton';
-import CheckBox from '../checkbox/CheckBox';
+import Checkbox from '../checkbox/Checkbox';
 import Toggle from '../toggle/Toggle';
 
 export interface MenuProps {
@@ -47,7 +47,7 @@ function MenuHandler(variant:string,  options:any[], open:boolean, close: (event
                     <MenuItem
                         key={option}>
                         {(variant === 'default') ? <div>{option}</div> : null}
-                        {(variant === 'checkmenu') ? <CheckBox label={option} color={componentColor}/> : null}
+                        {(variant === 'checkmenu') ? <Checkbox label={option} color={componentColor}/> : null}
                         {(variant === 'togglemenu') ? <div><Toggle color={componentColor}/>{option}</div> : null} 
                   </MenuItem>
               ))}
