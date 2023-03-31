@@ -13,11 +13,11 @@ export default {
 const TemplateBasic: ComponentStory<typeof Table> = (args) => <Table {...args}></Table>;
 
 const columns: Column[] = [
-  { accessorKey: 'name.firstName', header: 'First Name' },
-  { accessorKey: 'name.lastName', header: 'Last Name' },
-  { accessorKey: 'address', header: 'Address' },
-  { accessorKey: 'city', header: 'City' },
-  { accessorKey: 'state', header: 'State' },
+  { accessorKey: 'name.firstName', header: 'First Name', size: 100},
+  { accessorKey: 'name.lastName', header: 'Last Name', size: 100},
+  { accessorKey: 'address', header: 'Address', size: 250},
+  { accessorKey: 'city', header: 'City', size: 100},
+  { accessorKey: 'state', header: 'State', size: 100},
 ];
 const data = [
   { name: { firstName: 'John', lastName: 'Doe' }, address: '261 Erdman Ford', city: 'East Daphne', state: 'Kentucky' },
@@ -47,10 +47,10 @@ Sorting.args = {
 };
 
 
-const advancedColumns: (Column & { size: number})[] = [
-  { accessorKey: 'name.firstName', header: 'First Name', size: 100},
-  { accessorKey: 'name.lastName', header: 'Last Name', size: 100},
-  { accessorKey: 'address', header: 'Address', size: 200},
+const advancedColumns: (Column)[] = [
+  { accessorKey: 'name.firstName', header: 'First Name', size: 200},
+  { accessorKey: 'name.lastName', header: 'Last Name', size: 200},
+  { accessorKey: 'address', header: 'Address', size: 300},
   { accessorKey: 'city', header: 'City', size: 100},
   { accessorKey: 'state', header: 'State', size: 100},
   { accessorKey: 'icon', header: 'Icon', size: 50},
