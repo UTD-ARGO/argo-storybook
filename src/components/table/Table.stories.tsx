@@ -38,7 +38,8 @@ Basic.args = {
   enableBottomToolbar: false,
   enableTopToolbar: false,
   enableRowHover: false,
-  enableColumnResizing: false
+  enableColumnResizing: false,
+  density: 'comfortable',
 };
 
 export const Sorting = TemplateBasic.bind({});
@@ -54,6 +55,7 @@ Sorting.args = {
   enableTopToolbar:  true,
   enableRowHover:  true,
   enableColumnResizing:  false,
+  density: 'comfortable',
 };
 
 
@@ -133,5 +135,6 @@ const TemplateAdvanced: ComponentStory<typeof AdvancedTable> = (args) =>
   enableTopToolbar:  true,
   enableRowHover:  true,
   enableColumnResizing:  true,
+  density: 'comfortable',
 };
 

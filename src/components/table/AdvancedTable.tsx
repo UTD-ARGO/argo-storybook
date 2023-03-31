@@ -19,6 +19,7 @@ export interface AdvancedTableProps {
   enableRowHover?: boolean;
   enableRowSelection?: boolean;
   enableColumnResizing?: boolean;
+  density?: 'comfortable' | 'compact' | 'spacious';
 }
 
 export interface Row {
@@ -41,6 +42,7 @@ const AdvancedTable = ({
   enableRowHover = true,
   enableRowSelection = true,
   enableColumnResizing = true,
+  density = 'comfortable',
   ...props }: AdvancedTableProps) => {
 
     const renderedColumns = useMemo<MRT_ColumnDef<any>[]>(
@@ -57,7 +59,7 @@ const AdvancedTable = ({
           enableGrouping={enableGrouping}
           enablePinning={enablePinning}
           enableRowSelection={enableRowSelection}
-          initialState={{ showColumnFilters: false }}
+          initialState={{ showColumnFilters: false, density: density }}
           positionToolbarAlertBanner="bottom"
           enableColumnResizing={enableColumnResizing}
           columnResizeMode="onChange"
@@ -77,7 +79,7 @@ const AdvancedTable = ({
             return (
               <Box>
                   <Typography
-                        variant="h4"
+                        variant="h5"
                         color="black"
                         component="div"
                         sx={{ flexGrow: 1 }}

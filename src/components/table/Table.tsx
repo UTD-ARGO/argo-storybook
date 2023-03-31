@@ -14,6 +14,7 @@ export interface TableProps {
   enableTopToolbar?: boolean;
   enableRowHover?: boolean;
   enableColumnResizing?: boolean;
+  density?: 'comfortable' | 'compact' | 'spacious';
 }
 
 export interface Column {
@@ -34,6 +35,7 @@ const Table = ({
   enableTopToolbar = true,
   enableRowHover = true,
   enableColumnResizing = false,
+  density = 'compact',
   ...props }: TableProps) => {
 
   const renderedColumns = useMemo<MRT_ColumnDef<any>[]>(
@@ -54,6 +56,7 @@ const Table = ({
           muiTableBodyRowProps={{ hover: enableRowHover }}
           enableColumnResizing={enableColumnResizing}
           columnResizeMode="onChange"
+          initialState={{density: density}}
           muiTableProps={{
             sx: {
               tableLayout: 'fixed',
@@ -63,7 +66,7 @@ const Table = ({
             return (
               <Box>
                   <Typography
-                        variant="h4"
+                        variant="h5"
                         color="black"
                         component="div"
                         sx={{ flexGrow: 1 }}
