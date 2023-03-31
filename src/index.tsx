@@ -20,8 +20,7 @@ export { default as Tab } from './components/tab/Tab';
 export { default as TextField } from './components/textfield/TextField';
 export { default as Toggle } from './components/toggle/Toggle';
 export { default as Image } from './components/image/Image';
-export {default as BasicTable} from './components/table/BasicTable';
-export {default as EnhancedTable} from './components/table/EnhancedTable';
-export {default as DataTable} from './components/table/DataTable';
+export {default as Table} from './components/table/Table';
+export {default as AdvancedTable} from './components/table/AdvancedTable';
 
 import './index.css';

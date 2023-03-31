@@ -1,109 +1,118 @@
 import React from 'react';
-import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import BasicTable, { BasicTableProps } from './BasicTable'
-import DataTable from './DataTable';
-import Chip from '@mui/material/Chip';
+import Table, { Column } from './Table';
+import AdvancedTable, {Row} from './AdvancedTable';
+import Alert from '@mui/material/Alert'
 import PersonIcon from '@mui/icons-material/Person';
-import EnhancedTable, {HeadCell, RowData} from './EnhancedTable';
 
 export default {
-	title: 'Data Display/Table',
-	component: DataTable
-} as ComponentMeta<typeof DataTable>;
+  title: 'Data Display/Table',
+  component: Table
+} as ComponentMeta<typeof Table>;
 
-const TemplateBasic: ComponentStory<typeof BasicTable> = (args) => <BasicTable {...args} />;
-const columns = ["Dessert (100g serving)", "Calories", "Fat", "Carbs", "Protein"];
-const rows = [
-	{name: 'Frozen yogurt', calories: 159, fat: 6.0, carbs: 24, protein: 4.0},
-	{name: 'Ice cream sandwich', calories: 237, fat: 9.0, carbs: 37, protein: 4.3},
-  	{name: 'Eclair', calories: 262, fat: 16.0, carbs: 24, protein: 6.0},
-  	{name: 'Cupcake', calories: 305, fat: 3.7, carbs: 67, protein: 4.3},
-  	{name: 'Gingerbread', calories: 356, fat: 16.0, carbs: 49, protein: 3.9},
+const TemplateBasic: ComponentStory<typeof Table> = (args) => <Table {...args}></Table>;
+
+const columns: Column[] = [
+  { accessorKey: 'name.firstName', header: 'First Name' },
+  { accessorKey: 'name.lastName', header: 'Last Name' },
+  { accessorKey: 'address', header: 'Address' },
+  { accessorKey: 'city', header: 'City' },
+  { accessorKey: 'state', header: 'State' },
 ];
-
+const data = [
+  { name: { firstName: 'John', lastName: 'Doe' }, address: '261 Erdman Ford', city: 'East Daphne', state: 'Kentucky' },
+  { name: { firstName: 'Jane', lastName: 'Doe' }, address: '769 Dominic Grove', city: 'Columbus', state: 'Ohio' },
+  { name: { firstName: 'Joe', lastName: 'Doe' }, address: '566 Brakus Inlet', city: 'South Linda', state: 'West Virginia' },
+  { name: { firstName: 'Kevin', lastName: 'Vandy' }, address: '722 Emie Stream', city: 'Lincoln', state: 'Nebraska' },
+  { name: { firstName: 'Joshua', lastName: 'Rolluffs' }, address: '32188 Larkin Turnpike', city: 'Omaha', state: 'Nebraska' }
+];
+  
 export const Basic = TemplateBasic.bind({});
 Basic.args = {
-	tableColumns: columns,
-	tableRows: rows,
-	tableWidth: 1000,
-	tableHeight: 400
+  columns: columns,
+  data: data,
+  enableColumnActions: false,
+  enableColumnFilters: false,
+  enablePagination: false,
+  enableSorting: false,
+  enableBottomToolbar: false,
+  enableTopToolbar: false,
+  enableRowHover: false
 };
 
-const TemplateEnhanced: ComponentStory<typeof EnhancedTable> = (args) => <EnhancedTable {...args} />;
-const columnsEnhanced: readonly HeadCell[] = [
-	{ headCellId: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)'},
-	{ headCellId: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-	{ headCellId: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-	{ headCellId: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-	{ headCellId: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
+export const Sorting = TemplateBasic.bind({});
+Sorting.args = {
+  columns: columns,
+  data: data,
+};
+
+
+const advancedColumns: (Column & { size: number})[] = [
+  { accessorKey: 'name.firstName', header: 'First Name', size: 100},
+  { accessorKey: 'name.lastName', header: 'Last Name', size: 100},
+  { accessorKey: 'address', header: 'Address', size: 200},
+  { accessorKey: 'city', header: 'City', size: 100},
+  { accessorKey: 'state', header: 'State', size: 100},
+  { accessorKey: 'icon', header: 'Icon', size: 50},
+
 ];
 
-const rowsEnhanced: (RowData & { calories: number; fat: number; carbs: number; protein: number })[] = [
-	{ name: 'Cupcake', calories: 305, fat: 3.7, carbs: 67, protein: 4.3},
-	{ name: 'Donut', calories: 452, fat: 25.0, carbs: 51, protein: 4.9},
-	{ name: 'Eclair', calories: 262, fat: 16.0, carbs: 24, protein: 6.0},
-	{ name: 'Frozen yoghurt', calories: 159, fat: 6.0, carbs: 24, protein: 4.0},
-	{ name: 'Gingerbread', calories: 356, fat: 16.0, carbs: 49, protein: 3.9},
-	{ name: 'Honeycomb', calories: 408, fat: 3.2, carbs: 87, protein: 6.5},
-	{ name: 'Ice cream sandwich', calories: 237, fat: 9.0, carbs: 37, protein: 4.3},
-	{ name: 'Jelly Bean', calories: 375, fat: 0.0, carbs: 94, protein: 0.0},
-	{ name: 'KitKat', calories: 518, fat: 26.0, carbs: 65, protein: 7.0},
-	{ name: 'Lollipop', calories: 392, fat: 0.2, carbs: 98, protein: 0.0},
+const advancedData: (Row & { 
+  name: {firstName: string, lastName: string}, 
+  address: string, 
+  city: string, 
+  state: string,
+  icon: JSX.Element,
+})[] = [
+  {
+    name: { firstName: 'John', lastName: 'Doe' },
+    address: '261 Erdman Ford',
+    city: 'East Daphne',
+    state: 'Kentucky',
+    icon: <PersonIcon />,
+    detailPanelData: <Alert severity="info">This is John Doe's information.</Alert>,
+  },
+  {
+    name: { firstName: 'Jane', lastName: 'Doe' },
+    address: '769 Dominic Grove',
+    city: 'Columbus',
+    state: 'Ohio',
+    icon: <PersonIcon />,
+    detailPanelData: <Alert severity="info">This is Jane Doe's information.</Alert>,
+  },
+  {
+    name: { firstName: 'Joe', lastName: 'Doe' },
+    address: '566 Brakus Inlet',
+    city: 'South Linda',
+    state: 'West Virginia',
+    icon: <PersonIcon />,
+    detailPanelData: <Alert severity="info">This is Joe Doe's information.</Alert>,
+  },
+  {
+    name: { firstName: 'Kevin', lastName: 'Vandy' },
+    address: '722 Emie Stream',
+    city: 'Lincoln',
+    state: 'Nebraska',
+    icon: <PersonIcon />,
+    detailPanelData: <Alert severity="info">This is Kevin Vandy's information.</Alert>,
+  },
+  {
+    name: { firstName: 'Joshua', lastName: 'Rolluffs' },
+    address: '32188 Larkin Turnpike',
+    city: 'Omaha',
+    state: 'Nebraska',
+    icon: <PersonIcon />,
+    detailPanelData: <Alert severity="info">This is Joshua Rolluffs' information.</Alert>,
+  },
 ];
 
-export const Enhanced = TemplateEnhanced.bind({});
-Enhanced.args = {
-	tableColumns: columnsEnhanced,
-	tableRows: rowsEnhanced,
-	title: 'Title',
-	densePadding: false,
-	tableWidth: 1200,
-	tableHeight: 400,
-	rowsPerPageOptions: [5, 10, 25],
+
+
+const TemplateAdvanced: ComponentStory<typeof AdvancedTable> = (args) =>
+ <AdvancedTable {...args}></AdvancedTable>;
+ export const Advanced = TemplateAdvanced.bind({});
+ Advanced.args = {
+  columns: advancedColumns,
+  data: advancedData,
 };
 
-const TemplateData: ComponentStory<typeof DataTable> = (args) => <DataTable {...args} />;
-
-const dataColumns: GridColDef[] = [
-	{ field: 'id', headerName: 'ID', width: 70 },
-	{ field: 'firstName', headerName: 'First name', width: 130 },
-	{ field: 'lastName', headerName: 'Last name', width: 130 },
-	{ field: 'age', headerName: 'Age', width: 90,},
-	{
-		field: 'icon',
-		headerName: 'Icon',
-		width: 100,
-		renderCell: (params: GridRenderCellParams<Date>) => (
-			<PersonIcon />
-		),
-	},
-	{
-		field: 'component',
-		headerName: 'Component',
-		width: 150,
-		renderCell: (params: GridRenderCellParams<Date>) => (
-			<Chip label="Chip" variant="outlined" color="primary"/>
-		),
-	},
-  ];
-  
-const dataRows = [
-	{ id: 1, lastName: 'Snow', firstName: 'Jon', age: 35},
-	{ id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42},
-	{ id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45},
-	{ id: 4, lastName: 'Stark', firstName: 'Arya', age: 16},
-	{ id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: 75},
-	{ id: 6, lastName: 'Melisandre', firstName: 'Trudy', age: 83},
-	{ id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44},
-	{ id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36}
-  ];
-
-export const Data = TemplateData.bind({});
-Data.args = {
-	tableColumns: dataColumns,
-	tableRows: dataRows,
-	rowsPerPage: [10, 25, 50],
-	tableWidth: 1500,
-  	tableHeight: 500,
-};
