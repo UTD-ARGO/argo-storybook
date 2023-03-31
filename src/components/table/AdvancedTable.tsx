@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import MaterialReactTable, { type MRT_ColumnDef } from 'material-react-table';
 import {Column} from './Table';
-import Box from '@mui/material/Box';
+import {Box, Typography} from '@mui/material';
   
 export interface AdvancedTableProps {
   columns: Column[];
   data: Row[];
+  title?: string;
   enableColumnActions?: boolean;
   enableColumnFilters?: boolean;
   enablePagination?: boolean;
@@ -27,6 +28,7 @@ export interface Row {
 const AdvancedTable = ({ 
   columns = [],
   data = [],
+  title = '',
   enableColumnActions = true,
   enableColumnFilters = false,
   enablePagination = true,
@@ -70,6 +72,20 @@ const AdvancedTable = ({
             sx: {
               tableLayout: 'fixed',
             },
+          }}
+          renderTopToolbarCustomActions={({ table }) => {
+            return (
+              <Box>
+                  <Typography
+                        variant="h4"
+                        color="black"
+                        component="div"
+                        sx={{ flexGrow: 1 }}
+                      >
+                        {title}
+                  </Typography>
+              </Box>
+            );
           }}
         />
       );

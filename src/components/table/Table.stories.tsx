@@ -37,13 +37,23 @@ Basic.args = {
   enableSorting: false,
   enableBottomToolbar: false,
   enableTopToolbar: false,
-  enableRowHover: false
+  enableRowHover: false,
+  enableColumnResizing: false
 };
 
 export const Sorting = TemplateBasic.bind({});
 Sorting.args = {
   columns: columns,
   data: data,
+  title: '',
+  enableColumnActions:  true,
+  enableColumnFilters:  true,
+  enablePagination:  true,
+  enableSorting:  true,
+  enableBottomToolbar:  true,
+  enableTopToolbar:  true,
+  enableRowHover:  true,
+  enableColumnResizing:  false,
 };
 
 
@@ -114,5 +124,14 @@ const TemplateAdvanced: ComponentStory<typeof AdvancedTable> = (args) =>
  Advanced.args = {
   columns: advancedColumns,
   data: advancedData,
+  title: '',
+  enableColumnActions:  true,
+  enableColumnFilters:  true,
+  enablePagination:  true,
+  enableSorting:  true,
+  enableBottomToolbar:  true,
+  enableTopToolbar:  true,
+  enableRowHover:  true,
+  enableColumnResizing:  true,
 };
 
