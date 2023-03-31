@@ -21,6 +21,7 @@ export interface HeaderProps {
 	title?: string;
 	buttonLabel?: string;
 	tabs?: string[];
+	tabClickData?: any[];
 	backgroundColor?: string;
 }
 
@@ -28,17 +29,30 @@ const Header = ({
 	title,
 	variant,
 	buttonLabel,
-	tabs,
+	tabs = [],
+	tabClickData=[],
 	backgroundColor,
 	...props
 }: HeaderProps) => {
 	const [time, setTime] = React.useState(Date.now());
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const [menuOpen, setMenuOpen] = React.useState(false);
-	const options = ['Profile', 'My List', 'Settings & Privacy', 'Logout']
-	const handleTabClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-		setMenuOpen(true);
-	};
+	const [menuStates, setMenuStates] = useState(new Array(tabs.length).fill(false));
+	const [selectedTab, setSelectedTab] = React.useState(0);
+
+	let createdMenus: JSX.Element[] = [];
+	
+	tabs.forEach((tab, index) => {
+		createdMenus.push(
+		  <Menu
+			key={tab}
+			variant={'default'}
+			options={tabClickData[index]}
+			open={menuOpen && selectedTab === index}
+			close={() => setMenuOpen(false)}
+		  />
+		);
+	  });
 
 	React.useEffect(() => {
 		const timer = setInterval(() => {
@@ -108,39 +122,45 @@ const Header = ({
 		  ) : variant === 'global-tabs' ? (
 			<>
 				<Box sx={{ flexGrow: 1 }}>
-						<AppBar position="static" style={{ backgroundColor }}>
-								<Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-											<Typography
-											variant="h4"
-											noWrap
-											component="div"
-											sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-											>
-											{title}
-											</Typography>
-											<Box sx={{ display: 'flex', alignItems: 'center' }}>
-												<SearchBar
-													variant="contained"
-													label="Search"
-													disabled={false}
-													error={false}
-												/>
-												<Box sx={{ height: 40, flexGrow: 1, marginLeft: 2 }}>
-													<Tab labels={tabs} onClick={handleTabClick} />
-												</Box>
-												<Box sx={{ height: 40, flexGrow: 1, ml: 'auto' }}>
-													<Menu
-													variant={'default'}
-													options={options}
-													open={menuOpen}
-													close={() => setMenuOpen(false)}
-													/>
-												</Box>			
-											</Box>
-								</Toolbar>
-						</AppBar>
+				<AppBar position="static" style={{ backgroundColor }}>
+					<Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+					<Typography
+						variant="h4"
+						noWrap
+						component="div"
+						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+					>
+						{title}
+					</Typography>
+					<Box sx={{ display: 'flex', alignItems: 'center' }}>
+						<SearchBar
+						variant="contained"
+						label="Search"
+						disabled={false}
+						error={false}
+						/>
+						<Box sx={{ height: 40, flexGrow: 1, marginLeft: 2 }}>
+						<Tab
+							labels={tabs}
+							onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+							const index = (event.target as HTMLDivElement).getAttribute('aria-posinset');
+							if (index) {
+								const tabIndex = parseInt(index) - 1;
+								const newMenuStates = [...menuStates];
+								newMenuStates[tabIndex] = !menuStates[tabIndex];
+								setMenuOpen(newMenuStates.some((state) => state));
+								setMenuStates(newMenuStates);
+								setSelectedTab(tabIndex);
+							}
+							}}
+						/>
+						{createdMenus}
+						</Box>
+					</Box>
+					</Toolbar>
+				</AppBar>
 				</Box>
-			</>
+     		</>
 		  ) : (
 			<>
 			  <Box sx={{ flexGrow: 1 }}>

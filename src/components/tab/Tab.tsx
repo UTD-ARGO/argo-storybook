@@ -6,15 +6,21 @@ import Menu from '../menu/Menu'
 export interface TabProps {
 	labels?: string[];
 	onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	onTabClick?: (index: number) => void;
 }
 
 export default function Tab({ 
 	labels,
 	onClick,
+	onTabClick,
 	...props }: TabProps) {
 	const [value, setValue] = React.useState(0);
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
+	};
+
+	const handleTabClick = (index: number) => {
+		onTabClick && onTabClick(index);
 	};
 
 	return (
@@ -39,7 +45,10 @@ export default function Tab({
 							value={index}
 							label={label}
 							sx={{ textTransform: 'none' }}
-							onClick={onClick}
+							onClick={(event) => {
+								handleTabClick(index);
+								onClick && onClick(event);
+							}}
 						/>
 					))}
 			</MUITabs>

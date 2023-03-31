@@ -25,6 +25,7 @@ GlobalTabs.args = {
 	title: 'Title',
 	variant: 'global-tabs',
 	tabs: ['MOVIES', 'TV SHOWS', 'NEWS', 'NAME'],
+	tabClickData: [['Tabl'], ['Tab2'], ['Tab3'], ['Profile', 'My List', 'Settings & Privacy', 'Logout']],
 	backgroundColor: 'steelblue'
 };
 
