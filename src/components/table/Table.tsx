@@ -11,11 +11,13 @@ export interface TableProps {
   enableBottomToolbar?: boolean;
   enableTopToolbar?: boolean;
   enableRowHover?: boolean;
+  enableColumnResizing?: boolean;
 }
 
 export interface Column {
     accessorKey: string;
     header: string;
+    size: number;
 }
 
 const Table = ({ 
@@ -28,12 +30,13 @@ const Table = ({
   enableBottomToolbar = true,
   enableTopToolbar = true,
   enableRowHover = true,
+  enableColumnResizing = false,
   ...props }: TableProps) => {
 
-    const renderedColumns = useMemo<MRT_ColumnDef<any>[]>(
-        () => columns.map(({ accessorKey, header }) => ({ accessorKey, header })),
-        [columns],
-      );
+  const renderedColumns = useMemo<MRT_ColumnDef<any>[]>(
+    () => columns.map(({ accessorKey, header, size }) => ({ accessorKey, header, size })),
+    [columns],
+  );
       
       return (
         <MaterialReactTable
@@ -46,6 +49,13 @@ const Table = ({
           enableBottomToolbar={enableBottomToolbar}
           enableTopToolbar={enableTopToolbar}
           muiTableBodyRowProps={{ hover: enableRowHover }}
+          enableColumnResizing={enableColumnResizing}
+          columnResizeMode="onChange"
+          muiTableProps={{
+            sx: {
+              tableLayout: 'fixed',
+            },
+          }}
         />
       );
 };

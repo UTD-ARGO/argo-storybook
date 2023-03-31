@@ -17,6 +17,7 @@ export interface AdvancedTableProps {
   enablePinning?: boolean;
   enableRowHover?: boolean;
   enableRowSelection?: boolean;
+  enableColumnResizing?: boolean;
 }
 
 export interface Row {
@@ -37,12 +38,13 @@ const AdvancedTable = ({
   enablePinning = true,
   enableRowHover = true,
   enableRowSelection = true,
+  enableColumnResizing = true,
   ...props }: AdvancedTableProps) => {
 
     const renderedColumns = useMemo<MRT_ColumnDef<any>[]>(
-        () => columns.map(({ accessorKey, header }) => ({ accessorKey, header })),
-        [columns],
-      );
+      () => columns.map(({ accessorKey, header, size }) => ({ accessorKey, header, size })),
+      [columns],
+    );
       
       return (
         <MaterialReactTable
@@ -55,6 +57,8 @@ const AdvancedTable = ({
           enableRowSelection={enableRowSelection}
           initialState={{ showColumnFilters: false }}
           positionToolbarAlertBanner="bottom"
+          enableColumnResizing={enableColumnResizing}
+          columnResizeMode="onChange"
           renderDetailPanel={({ row }) => (
             <Box
               sx={{display: 'flex', alignItems: 'left'}}
@@ -62,7 +66,11 @@ const AdvancedTable = ({
                 {row.original.detailPanelData}
             </Box>
           )}
-          
+          muiTableProps={{
+            sx: {
+              tableLayout: 'fixed',
+            },
+          }}
         />
       );
 };
