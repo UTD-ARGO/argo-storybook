@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import MaterialReactTable, { type MRT_ColumnDef } from 'material-react-table';
 import {Column} from './Table';
-import Box from '@mui/material/Box';
+import {Box, Typography} from '@mui/material';
   
 export interface AdvancedTableProps {
   columns: Column[];
   data: Row[];
+  title?: string;
   enableColumnActions?: boolean;
   enableColumnFilters?: boolean;
   enablePagination?: boolean;
@@ -17,6 +18,8 @@ export interface AdvancedTableProps {
   enablePinning?: boolean;
   enableRowHover?: boolean;
   enableRowSelection?: boolean;
+  enableColumnResizing?: boolean;
+  density?: 'comfortable' | 'compact' | 'spacious';
 }
 
 export interface Row {
@@ -26,6 +29,7 @@ export interface Row {
 const AdvancedTable = ({ 
   columns = [],
   data = [],
+  title = '',
   enableColumnActions = true,
   enableColumnFilters = false,
   enablePagination = true,
@@ -37,12 +41,14 @@ const AdvancedTable = ({
   enablePinning = true,
   enableRowHover = true,
   enableRowSelection = true,
+  enableColumnResizing = true,
+  density = 'comfortable',
   ...props }: AdvancedTableProps) => {
 
     const renderedColumns = useMemo<MRT_ColumnDef<any>[]>(
-        () => columns.map(({ accessorKey, header }) => ({ accessorKey, header })),
-        [columns],
-      );
+      () => columns.map(({ accessorKey, header, size }) => ({ accessorKey, header, size })),
+      [columns],
+    );
       
       return (
         <MaterialReactTable
@@ -53,8 +59,10 @@ const AdvancedTable = ({
           enableGrouping={enableGrouping}
           enablePinning={enablePinning}
           enableRowSelection={enableRowSelection}
-          initialState={{ showColumnFilters: false }}
+          initialState={{ showColumnFilters: false, density: density }}
           positionToolbarAlertBanner="bottom"
+          enableColumnResizing={enableColumnResizing}
+          columnResizeMode="onChange"
           renderDetailPanel={({ row }) => (
             <Box
               sx={{display: 'flex', alignItems: 'left'}}
@@ -62,7 +70,25 @@ const AdvancedTable = ({
                 {row.original.detailPanelData}
             </Box>
           )}
-          
+          muiTableProps={{
+            sx: {
+              tableLayout: 'fixed',
+            },
+          }}
+          renderTopToolbarCustomActions={({ table }) => {
+            return (
+              <Box>
+                  <Typography
+                        variant="h5"
+                        color="black"
+                        component="div"
+                        sx={{ flexGrow: 1 }}
+                      >
+                        {title}
+                  </Typography>
+              </Box>
+            );
+          }}
         />
       );
 };
