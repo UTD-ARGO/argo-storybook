@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import CustomTab from '../tab/CustomTab';
 import Header from './Header';
 
 export default {
@@ -24,9 +24,17 @@ export const GlobalTabs = Template.bind({});
 GlobalTabs.args = {
 	title: 'Title',
 	variant: 'global-tabs',
-	tabs: ['MOVIES', 'TV SHOWS', 'NEWS', 'NAME'],
-	tabClickData: [['Tabl'], ['Tab2'], ['Tab3'], ['Profile', 'My List', 'Settings & Privacy', 'Logout']],
-	backgroundColor: 'steelblue'
+	backgroundColor: 'steelblue',
+	customTab: (
+		<CustomTab
+			labels={['MOVIES', 'TV SHOWS', 'NEWS', 'NAME']}
+			fontColor="#fff"
+			fontSize="18px"
+			hoverColor="#fff"
+			borderRadius="4px"
+			height="62px"
+		/>
+	),
 };
 
 export const Basic = Template.bind({});
