@@ -5,6 +5,7 @@ import './image.css';
 
 export interface ImageProps {
 	variant?: 'default' | 'left' | 'center';
+	align?: 'center' | 'left' | 'right';
 	img: string;
 	imgWidth: string;
 	imgHeight: string;
@@ -21,9 +22,11 @@ function badgeComponent(badge: string) {
 	}
 }
 
-function headerComponent(header: string) {
-	if (header) {
-		return (<div> <h3> {header} </h3> </div>);
+function headerComponent(header: string, align: string) {
+	if (header && (align == 'center')) {
+		return (<div className='headerDiv'> <h3 className='header'> {header} </h3> </div>);
+	} else if (header) {
+		return (<div className='headerDiv'> <h3 className='header'> {header} </h3> </div>);
 	}
 }
 
@@ -42,13 +45,14 @@ function bodyComponent(body: string) {
 function imageOrientation(
 			variant: string, 
 			img: string, 
+			align: string,
 			imgWidth: string, 
 			imgHeight: string, 
 			header: any,
 			subheader: any,
 			body: any,
 			padding: string,
-			badge: any
+			badge: any,
 			) {
 	if (variant == 'default') {
 		return (
@@ -62,8 +66,8 @@ function imageOrientation(
 				<Box sx={{ justifyContent: 'center' }}>
 					<img src={img} width={imgWidth} height={imgHeight} />
 				</Box>
-				<Box sx={{ paddingLeft: '20px' }}>
-					{headerComponent(header)}	
+				<Box sx={{ paddingLeft: '20px', textAlign: align}}>
+					{headerComponent(header, align)}	
 					{badgeComponent(badge)}
 					{subheaderComponent(subheader)}
 					{bodyComponent(body)}
@@ -73,11 +77,11 @@ function imageOrientation(
 	} else if (variant == 'center') {
 		return (
 			<Box sx={{ padding: {padding} }}>
-				<Box className="test">
+				<Box sx={{textAlign: align }}>
 					<img src={img} width={imgWidth} height={imgHeight} />
 				</Box>
-				<Box className="test">
-					{headerComponent(header)}	
+				<Box sx={{textAlign: align }}>
+					{headerComponent(header, align)}	
 					{badgeComponent(badge)}
 					{subheaderComponent(subheader)}
 					{bodyComponent(body)}
@@ -90,6 +94,7 @@ function imageOrientation(
 
 const Image = ({
 	variant='default',
+	align='left',
 	img, 
 	imgWidth,
 	imgHeight,
@@ -102,7 +107,7 @@ const Image = ({
 }: ImageProps) => {
 	return (
 		<Box>
-			{imageOrientation(variant, img, imgWidth, imgHeight, header, subheader, body, padding, badge)}
+			{imageOrientation(variant, img, align, imgWidth, imgHeight, header, subheader, body, padding, badge)}
 		</Box>
 	);
 };
