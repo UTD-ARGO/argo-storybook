@@ -22,10 +22,8 @@ function badgeComponent(badge: string) {
 	}
 }
 
-function headerComponent(header: string, align: string) {
-	if (header && (align == 'center')) {
-		return (<div className='headerDiv'> <h3 className='header'> {header} </h3> </div>);
-	} else if (header) {
+function headerComponent(header: string) {
+	if (header) {
 		return (<div className='headerDiv'> <h3 className='header'> {header} </h3> </div>);
 	}
 }
@@ -67,7 +65,7 @@ function imageOrientation(
 					<img src={img} width={imgWidth} height={imgHeight} />
 				</Box>
 				<Box sx={{ paddingLeft: '20px', textAlign: align}}>
-					{headerComponent(header, align)}	
+					{headerComponent(header)}	
 					{badgeComponent(badge)}
 					{subheaderComponent(subheader)}
 					{bodyComponent(body)}
@@ -81,7 +79,7 @@ function imageOrientation(
 					<img src={img} width={imgWidth} height={imgHeight} />
 				</Box>
 				<Box sx={{textAlign: align }}>
-					{headerComponent(header, align)}	
+					{headerComponent(header)}	
 					{badgeComponent(badge)}
 					{subheaderComponent(subheader)}
 					{bodyComponent(body)}
