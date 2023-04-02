@@ -3,6 +3,16 @@
 	color: #888888;
 }
 
-.test {
+.imageDiv {
   text-align: center;
+}
+
+.header {
+	margin-top: 0;
+	text-align: center;
+	display: inline;
+}
+
+.headerDiv {
+	margin-bottom: 10px;
 }
