@@ -14,6 +14,7 @@ export interface FormProps {
     title: string;
     titleVariant?: "button" | "caption" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "inherit" | "overline" | "subtitle1" | "subtitle2" | "body1" | "body2";
     titleAlignment?: "center" | "justify" | "inherit" | "left" | "right";
+    color?: string;
     onClick?: () => void;
 }
 
@@ -36,6 +37,7 @@ const Form = ({
     title,
     titleVariant = 'h6',
     titleAlignment = 'center',
+    color = '#0000ff',
     onClick,
 	...props
 }: FormProps) => {
@@ -49,7 +51,7 @@ const Form = ({
        {content(formMatrix)}
         </Grid>
         <Grid container justifyContent='flex-end'>
-            <Button variant='primary' size='small' label='Submit' onClick={onClick}/>
+            <Button variant='primary' size='small' label='Submit' color={color} onClick={onClick}/>
         </Grid>
     </Box>
     </div>
