@@ -7,16 +7,17 @@ import { AccountCircleOutlined } from '@mui/icons-material';
 export interface LNProps {
 	listItems?: LNItem[];
 	onFooterClick?: () => void;
+	onChange?: (index: number) => void;
 }
 
 export interface LNItem {
 	label?: string;
 	icon?: React.ReactNode;
-	onClick?: () => void;
 }
 
 interface LNItemProps extends LNItem {
 	selected?: boolean;
+	onClick: React.MouseEventHandler<HTMLAnchorElement> | undefined;
 }
 
 const ListItem = (props: LNItemProps) => {
@@ -34,9 +35,9 @@ const ListItem = (props: LNItemProps) => {
 const LeftNavigation = (props: LNProps) => {
 	const [selected, setSelected] = useState(0);
 
-	const handleSelect = (index: number, callback?: () => void) => {
+	const handleSelect = (index: number) => {
 		setSelected(index);
-		if (callback) callback();
+		if (props.onChange) props.onChange(index);
 	};
 
 	return (
@@ -48,7 +49,7 @@ const LeftNavigation = (props: LNProps) => {
 							key={index}
 							{...item}
 							selected={selected === index}
-							onClick={() => handleSelect(index, item.onClick)}
+							onClick={() => handleSelect(index)}
 						/>
 					);
 				})}
