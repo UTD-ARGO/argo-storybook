@@ -1,0 +1,13 @@
+.card hr {
+  background-color: #d9d9d9;
+  height: 1px;
+  border: none;
+  margin: 0px
+}
+
+.card-titlebar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
