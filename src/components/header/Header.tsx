@@ -43,7 +43,7 @@ const Header = ({
 	}, []);
 
 	return (
-		<div>
+		<div style={{ textAlign: 'left' }}>
 			{variant === 'global' ? (
 				<>
 					<Box sx={{ flexGrow: 1 }}>
