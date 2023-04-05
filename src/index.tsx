@@ -13,6 +13,8 @@ export { default as Form } from './components/form/Form';
 export { default as Header } from './components/header/Header';
 export { default as LeftNavigation } from './components/leftnav/LeftNavigation';
 export { default as List } from './components/list/List';
+export { default as Login } from './components/login/Login';
+export { default as LoginPage } from './components/login/LoginPage';
 export { default as Menu } from './components/menu/Menu';
 export { default as RadioButton } from './components/radiobutton/RadioButton';
 export { default as SearchBar } from './components/searchbar/SearchBar';
@@ -21,7 +23,7 @@ export { default as TextField } from './components/textfield/TextField';
 export { default as Toggle } from './components/toggle/Toggle';
 export { default as Tooltip } from './components/tooltip/Tooltip';
 export { default as Image } from './components/image/Image';
-export {default as Table} from './components/table/Table';
-export {default as AdvancedTable} from './components/table/AdvancedTable';
+export { default as Table } from './components/table/Table';
+export { default as AdvancedTable } from './components/table/AdvancedTable';
 
 import './index.css';
