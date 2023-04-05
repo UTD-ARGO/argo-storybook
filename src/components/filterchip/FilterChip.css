@@ -24,12 +24,12 @@
   color: #000000;
 }
 
-.filterChip a {
+.filterChip span {
   cursor: pointer;
   display: inline-flex;
 }
 
-.filterChip a:hover {
+.filterChip span:hover {
   background-color: #c3ced6;
   border-radius: 4px;
 }
