@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Tab as MUITab, Tabs as MUITabs, Box } from '@mui/material';
+import { Tab as MUITab, Tabs as MUITabs } from '@mui/material';
 import './tab.css';
 
 export interface CustomTabProps {
@@ -10,6 +10,8 @@ export interface CustomTabProps {
   fontColor?: string;
   hoverFontColor?: string;
   height?: string;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => void;
+  value?: number;
 }
 
 export default function CustomTab({
@@ -20,52 +22,55 @@ export default function CustomTab({
   fontColor = '#000',
   hoverFontColor = '#000',
   height = '48px',
+  onClick,
+  value,
   ...props
 }: CustomTabProps) {
-  const [value, setValue] = React.useState(0);
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+  const handleTabClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+    if (onClick) {
+      onClick(event, index);
+    }
   };
 
   return (
     <MUITabs
-          value={value}
-          onChange={handleChange}
-          aria-label="custom tabs"
-          TabIndicatorProps={{
-                style: {
-                  backgroundColor: hoverColor
-                }
-          }}
-          sx={{
-                borderColor: 'divider',
-                display: 'inline-flex',
-                '& .MuiTab-root': {
-                  fontSize: fontSize,
-                  color: fontColor,
-                  borderRadius: '4px 4px 0 0',
-                  height: height,
-                  '&.Mui-selected': {
-                    color: fontColor,
-                  },
-                  '&:hover': {
-                    backgroundColor: hoverColor,
-                    color: hoverFontColor,
-                  },
-                },
-          }}
-          {...props}
-        >
-          {labels &&
-              labels.length > 0 &&
-              labels.map((label, index) => (
-                    <MUITab
-                      key={label}
-                      value={index}
-                      label={label}
-                      sx={{ textTransform: 'none' }}
-                    />
-            ))}
+      value={value}
+      aria-label="custom tabs"
+      TabIndicatorProps={{
+        style: {
+          backgroundColor: hoverColor
+        }
+      }}
+      sx={{
+        borderColor: 'divider',
+        display: 'inline-flex',
+        '& .MuiTab-root': {
+          fontSize: fontSize,
+          color: fontColor,
+          borderRadius: '4px 4px 0 0',
+          height: height,
+          '&.Mui-selected': {
+            color: fontColor,
+          },
+          '&:hover': {
+            backgroundColor: hoverColor,
+            color: hoverFontColor,
+          },
+        },
+      }}
+      {...props}
+    >
+      {labels &&
+        labels.length > 0 &&
+        labels.map((label, index) => (
+          <MUITab
+            key={label}
+            value={index}
+            label={label}
+            sx={{ textTransform: 'none' }}
+            onClick={(event) => handleTabClick(event, index)}
+          />
+        ))}
     </MUITabs>
   );
 }

@@ -20,11 +20,21 @@ Global.args = {
 	backgroundColor: 'steelblue'
 };
 
+const tabData = [
+	{ label: "MOVIES", options: ["Action", "Comedy", "Drama"] },
+	{ label: "TV SHOWS", options: ["Crime", "Fantasy", "Mystery", "Sci-Fi"] },
+	{ label: "NEWS", options: ["World", "Politics", "Sports"] },
+	{ label: "NAME", options: ["John", "Jane", "Bob", "Sue", "Tom"] },
+];
+
+const menuOptions = []
+
 export const GlobalTabs = Template.bind({});
 GlobalTabs.args = {
 	title: 'Title',
 	variant: 'global-tabs',
 	backgroundColor: 'steelblue',
+	titleFontWeight: '500',
 	customTab: (
 		<CustomTab
 			labels={['MOVIES', 'TV SHOWS', 'NEWS', 'NAME']}

@@ -6,13 +6,14 @@ import {
 	Toolbar,
 	Button,
 	IconButton,
-	Typography,
-	InputBase,
-	TextField
+	Typography
 } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchBar from '../searchbar/SearchBar';
 import Tab from '../tab/Tab';
+import CustomTab from '../tab/CustomTab';
+import Menu from '../menu/Menu'
+import Grid from '@mui/material/Grid';
 import './header.css';
 
 export interface HeaderProps {
@@ -33,21 +34,41 @@ const Header = ({
 	buttonLabel,
 	tabs = [],
 	backgroundColor,
-	titleFontWeight,
+	titleFontWeight='400',
 	customTab,
 	...props
 }: HeaderProps) => {
 	const [time, setTime] = React.useState(Date.now());
-
+	const [isMenuOpen, setIsMenuOpen] = React.useState<{ [key: number]: boolean }>({});
+	const [selectedTab, setSelectedTab] = React.useState(-1);
+	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	React.useEffect(() => {
-		const timer = setInterval(() => {
-			setTime(Date.now());
-		}, 1000);
-		return () => {
-			clearInterval(timer);
-		};
+	  const timer = setInterval(() => {
+		setTime(Date.now());
+	  }, 1000);
+	  return () => {
+		clearInterval(timer);
+	  };
 	}, []);
-
+  
+	const handleMenuClick = (event: React.MouseEvent<HTMLDivElement>, index: number) => {
+	  setSelectedTab(index === selectedTab ? -1 : index);
+	  setIsMenuOpen((prevState: { [key: number]: boolean }) => ({ ...prevState, [index]: !prevState[index] }));
+	  setAnchorEl(event.currentTarget);
+	};
+  
+	const handleMenuClose = (index: number) => {
+	  setIsMenuOpen((prevState: { [key: number]: boolean }) => ({ ...prevState, [index]: false }));
+	  setAnchorEl(null);
+	};
+  
+	const tabData = [
+	  { label: "MOVIES", options: ["Action", "Comedy", "Drama"] },
+	  { label: "TV SHOWS", options: ["Crime", "Fantasy", "Mystery", "Sci-Fi"] },
+	  { label: "NEWS", options: ["World", "Politics", "Sports"] },
+	  { label: "NAME", options: ["John", "Jane", "Bob", "Sue", "Tom"] },
+	];
+	  
 	return (
 		<div>
 		  {variant === 'global' ? (
@@ -106,27 +127,58 @@ const Header = ({
 			</>
 		  ) : variant === 'global-tabs' ? (
 			<>
-			 <Box sx={{ flexGrow: 1 }}>
+			<Box sx={{ flexGrow: 1 }}>
 					<AppBar position="static" style={{ backgroundColor }}>
-							<Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-									<Typography variant="h4" noWrap component="div" color={titleColor} sx={{ flexGrow: 1, fontWeight: '800'}}>
-										{title}
-									</Typography>
-									<Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 3}}>
-											<SearchBar
-											variant="contained"
-											label="Search"
-											disabled={false}
-											error={false}
-											/>
-									</Box>
-									<Box sx={{ height: "100%" }}>
-											{customTab}
-									</Box>
-							</Toolbar>
+						<Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+						<Typography 
+							variant="h4" 
+							noWrap 
+							component="div" 
+							color={titleColor} 
+							sx={{ flexGrow: 1, fontWeight: titleFontWeight }}
+						>
+							{title}
+						</Typography>
+						<Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 3 }}>
+							<SearchBar
+							variant="contained"
+							label="Search"
+							disabled={false}
+							error={false}
+							/>
+						</Box>
+						<div style={{ position: "relative", display: "flex", justifyContent: "flex-end", alignItems: "center", height: "100%" }}>
+							{tabData.map(({ label, options }, index) => (
+							<div key={label}>
+								<CustomTab
+								labels={[label]}
+								fontColor="#fff"
+								fontSize="18px"
+								hoverColor="#fff"
+								borderRadius="4px"
+								height="62px"
+								value={selectedTab === index ? 0 : -1}
+								onClick={(e) => handleMenuClick(e, index)}
+								/>
+								{isMenuOpen[index] && (
+								<div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0 }}>
+									<Menu
+									variant="default"
+									options={options}
+									open={isMenuOpen[index]}
+									close={() => handleMenuClose(index)}
+									anchorEl={anchorEl}
+									/>
+								</div>
+								)}
+							</div>
+							))}
+						</div>
+						</Toolbar>
 					</AppBar>
 			</Box>
-			</>
+
+		  </>
 		  ) : (
 			<>
 			  <Box sx={{ flexGrow: 1 }}>
