@@ -64,61 +64,61 @@ const Header = ({
 	};
 	  
 	return (
-		<div>
-		  {variant === 'global' ? (
-			<>
-			  <Box sx={{ flexGrow: 1 }}>
-				<AppBar position="static" style={{ backgroundColor }}>
-				  <Toolbar>
-					<Typography
-					  variant="h4"
-					  noWrap
-					  component="div"
-					  sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-					>
-					  {title}
-					</Typography>
-					<div
-					  style={{
-						marginRight: '16px',
-						gap: '10px',
-						display: 'flex',
-						flexDirection: 'row',
-						fontSize: '16px',
-						lineHeight: '24px',
-						letterSpacing: '.5px'
-					  }}
-					>
-					  <p>{new Date(time).toLocaleDateString()}</p>
-					  <p>
-						{new Date(time).toLocaleTimeString(navigator.language, {
-						  hour: '2-digit',
-						  minute: '2-digit'
-						})}
-					  </p>
-					</div>
-					<Box>
-					  <SearchBar
-						variant="contained"
-						label="Search"
-						disabled={false}
-						error={false}
-					  ></SearchBar>
+		<div style={{ textAlign: 'left' }}>
+			{variant === 'global' ? (
+				<>
+					<Box sx={{ flexGrow: 1 }}>
+						<AppBar position="static" style={{ backgroundColor }}>
+							<Toolbar>
+								<Typography
+									variant="h4"
+									noWrap
+									component="div"
+									sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+								>
+									{title}
+								</Typography>
+								<div
+									style={{
+										marginRight: '16px',
+										gap: '10px',
+										display: 'flex',
+										flexDirection: 'row',
+										fontSize: '16px',
+										lineHeight: '24px',
+										letterSpacing: '.5px'
+									}}
+								>
+									<p>{new Date(time).toLocaleDateString()}</p>
+									<p>
+										{new Date(time).toLocaleTimeString(navigator.language, {
+											hour: '2-digit',
+											minute: '2-digit'
+										})}
+									</p>
+								</div>
+								<Box>
+									<SearchBar
+										variant="contained"
+										label="Search"
+										disabled={false}
+										error={false}
+									></SearchBar>
+								</Box>
+								<IconButton
+									size="large"
+									aria-label="show new notifications icon"
+									color="inherit"
+									sx={{ marginLeft: 3, marginRight: -1 }}
+								>
+									<Badge>
+										<NotificationsIcon />
+									</Badge>
+								</IconButton>
+							</Toolbar>
+						</AppBar>
 					</Box>
-					<IconButton
-					  size="large"
-					  aria-label="show new notifications icon"
-					  color="inherit"
-					  sx={{ marginLeft: 3, marginRight: -1 }}
-					>
-					  <Badge>
-						<NotificationsIcon />
-					  </Badge>
-					</IconButton>
-				  </Toolbar>
-				</AppBar>
-			  </Box>
-			</>
+				</>
 		  ) : variant === 'global-tabs' ? (
 			<>
 			<Box sx={{ flexGrow: 1 }}>
