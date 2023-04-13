@@ -8,19 +8,25 @@ import {
 
 import Tab from '../tab/Tab';
 
+import './Card.css';
+
 export interface CardProps {
 	title?: string;
 	titleBar?: React.ReactNode;
 	footerBar?: React.ReactNode;
 	tabs?: string[];
+	centerContent?: boolean;
 	style?: SxProps;
 }
 
 const Card = (props: PropsWithChildren<CardProps>) => {
+	const centerStyle = props.centerContent
+		? { ...styles.cardCenterContent }
+		: {};
 	return (
-		<MUICard sx={{ ...styles.card, ...props.style }}>
+		<MUICard className="card" sx={{ ...styles.card, ...props.style }}>
 			{(props.title || props.titleBar) && [
-				<CardContent sx={styles.cardContent}>
+				<CardContent sx={{ ...styles.cardContent }}>
 					{props.title && [
 						<Typography
 							variant="h6"
@@ -30,15 +36,19 @@ const Card = (props: PropsWithChildren<CardProps>) => {
 							{props.title}
 						</Typography>
 					]}
-					<div style={styles.titlebar}>{props.titleBar}</div>
+					<div className="card-titlebar">{props.titleBar}</div>
 				</CardContent>,
-				<hr style={styles.hr}></hr>
+				<hr />
 			]}
 			{props.tabs && <Tab labels={props.tabs} />}
-			<CardContent>{props.children}</CardContent>
+			<CardContent sx={{ ...styles.cardChildContent, ...centerStyle }}>
+				{props.children}
+			</CardContent>
 			{props.footerBar && [
-				<hr style={styles.hr}></hr>,
-				<CardContent sx={styles.cardContent}>{props.footerBar}</CardContent>
+				<hr />,
+				<CardContent sx={{ ...styles.cardContent }}>
+					{props.footerBar}
+				</CardContent>
 			]}
 		</MUICard>
 	);
@@ -47,7 +57,9 @@ const Card = (props: PropsWithChildren<CardProps>) => {
 const styles = {
 	card: {
 		minWidth: '50px',
-		minHeight: '50px'
+		minHeight: '50px',
+		display: 'flex',
+		flexDirection: 'column'
 	},
 	cardContent: {
 		display: 'flex',
@@ -57,17 +69,15 @@ const styles = {
 			padding: '16px'
 		}
 	},
-	hr: {
-		backgroundColor: '#d9d9d9',
-		height: '1px',
-		border: 'none',
-		margin: '0px'
+	cardChildContent: {
+		flex: 1
 	},
-	titlebar: {
-		width: '100%',
+	cardCenterContent: {
 		display: 'flex',
-		flexDirection: 'row',
-		alignItems: 'center'
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
+		textAlign: 'center'
 	}
 } as { [key: string]: React.CSSProperties };
 

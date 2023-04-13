@@ -25,12 +25,12 @@ const Template: ComponentStory<typeof LeftNavigation> = (args) => (
 
 export const SideRail = Template.bind({});
 const items = [
-	{ label: 'Patients', icon: <Group />, onClick: () => {} },
-	{ label: 'Schedule', icon: <CalendarToday />, onClick: () => {} },
-	{ label: 'Messaging', icon: <Email />, onClick: () => {} },
-	{ label: 'Reports', icon: <Leaderboard />, onClick: () => {} },
-	{ label: 'About', icon: <Info />, onClick: () => {} },
-	{ label: 'Help', icon: <HelpOutline />, onClick: () => {} }
+	{ label: 'Patients', icon: <Group /> },
+	{ label: 'Schedule', icon: <CalendarToday /> },
+	{ label: 'Messaging', icon: <Email /> },
+	{ label: 'Reports', icon: <Leaderboard /> },
+	{ label: 'About', icon: <Info /> },
+	{ label: 'Help', icon: <HelpOutline /> }
 ] as LNItem[];
 
 SideRail.args = {

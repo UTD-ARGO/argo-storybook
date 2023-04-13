@@ -19,14 +19,13 @@ export const Default = Template.bind({});
 Default.args = { style: { width: 400, height: 400 } };
 
 export const Sectioned = Template.bind({});
-const sectionChildren: React.ReactNode = (
-	<div style={{ height: '200px' }}>Body</div>
-);
+const sectionChildren: React.ReactNode = <div>Body</div>;
 const sectionFooter: React.ReactNode = <p style={{ margin: '0px' }}>Footer</p>;
 Sectioned.args = {
 	title: 'Title',
 	children: sectionChildren,
-	footerBar: sectionFooter
+	footerBar: sectionFooter,
+	style: { width: 400, height: 400 }
 };
 
 export const Chart = ChartCard;
