@@ -20,15 +20,13 @@ Global.args = {
 	backgroundColor: 'steelblue'
 };
 
-const tabData = [
-	{ label: "MOVIES", options: ["Action", "Comedy", "Drama"] },
-	{ label: "TV SHOWS", options: ["Crime", "Fantasy", "Mystery", "Sci-Fi"] },
-	{ label: "NEWS", options: ["World", "Politics", "Sports"] },
-	{ label: "NAME", options: ["John", "Jane", "Bob", "Sue", "Tom"] },
-];
-
-const menuOptions = []
-
+const menuOptions = [
+	['Option 1', 'Option 2', 'Option 3'],
+	['Option A', 'Option B', 'Option C', 'Option D'],
+	['Option X', 'Option Y', 'Option Z'],
+	['Option foo', 'Option bar', 'Option baz', 'Option qux']
+  ];
+  
 export const GlobalTabs = Template.bind({});
 GlobalTabs.args = {
 	title: 'Title',
@@ -37,7 +35,7 @@ GlobalTabs.args = {
 	titleFontWeight: '500',
 	customTab: (
 		<CustomTab
-			labels={['MOVIES', 'TV SHOWS', 'NEWS', 'NAME']}
+			labels={['TAB 1', 'TAB 2', 'TAB 3', 'TAB 4']}
 			fontColor="#fff"
 			fontSize="18px"
 			hoverColor="#fff"
@@ -45,6 +43,7 @@ GlobalTabs.args = {
 			height="62px"
 		/>
 	),
+	menuOptions: menuOptions
 };
 
 export const Basic = Template.bind({});
