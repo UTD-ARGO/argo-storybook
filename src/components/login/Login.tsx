@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Button from '../button/Button';
 import Card from '../card/Card';
-import Form from '../form/Form';
 import TextField from '../textfield/TextField';
 
 export type LoginProps = {
@@ -23,7 +22,7 @@ const Login = (props: LoginProps) => {
 	return (
 		<Card
 			style={{
-				width: 350,
+				width: 'fit-content',
 				display: 'flex',
 				flexDirection: 'row',
 				justifyContent: 'center',
@@ -32,26 +31,28 @@ const Login = (props: LoginProps) => {
 			}}
 		>
 			<>{props.logo}</>
-			<TextField
-				label="Username"
-				size="small"
-				margin="normal"
-				width={300}
-				required
-				onChange={(e) => {
-					setUsername(e.target.value);
-				}}
-			/>
-			<TextField
-				label="Password"
-				size="small"
-				margin="normal"
-				width={300}
-				required
-				onChange={(e) => {
-					setPassword(e.target.value);
-				}}
-			/>
+			<div style={{ margin: '0 auto' }}>
+				<TextField
+					label="Username"
+					size="small"
+					margin="normal"
+					width={320}
+					required
+					onChange={(e) => {
+						setUsername(e.target.value);
+					}}
+				/>
+				<TextField
+					label="Password"
+					size="small"
+					margin="normal"
+					width={320}
+					required
+					onChange={(e) => {
+						setPassword(e.target.value);
+					}}
+				/>
+			</div>
 			<div
 				style={{
 					width: '100%',
