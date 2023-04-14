@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import CustomTab from '../tab/CustomTab';
 import Header from './Header';
 
 export default {
@@ -18,6 +18,32 @@ Global.args = {
 	title: 'Title',
 	variant: 'global',
 	backgroundColor: 'steelblue'
+};
+
+const menuOptions = [
+	['Option 1', 'Option 2', 'Option 3'],
+	['Option A', 'Option B', 'Option C', 'Option D'],
+	['Option X', 'Option Y', 'Option Z'],
+	['Option foo', 'Option bar', 'Option baz', 'Option qux']
+  ];
+  
+export const GlobalTabs = Template.bind({});
+GlobalTabs.args = {
+	title: 'Title',
+	variant: 'global-tabs',
+	backgroundColor: 'steelblue',
+	titleFontWeight: '500',
+	customTab: (
+		<CustomTab
+			labels={['TAB 1', 'TAB 2', 'TAB 3', 'TAB 4']}
+			fontColor="#fff"
+			fontSize="18px"
+			hoverColor="#fff"
+			borderRadius="4px"
+			height="62px"
+		/>
+	),
+	menuOptions: menuOptions
 };
 
 export const Basic = Template.bind({});
