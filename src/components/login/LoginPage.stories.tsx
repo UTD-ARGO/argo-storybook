@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LoginPage from './LoginPage';
+import { ReactNode } from 'react';
 
 export default {
 	title: 'Surfaces/Login/LoginPage',
@@ -13,9 +14,13 @@ export default {
 const TemplatePage: ComponentStory<typeof LoginPage> = (args) => (
 	<LoginPage {...args} />
 );
+const loggedIn: ReactNode = <div>Logged In!</div>;
+
 export const Default = TemplatePage.bind({});
 Default.args = {
-	logo: 'Logo'
+	logo: 'Logo',
+	children: loggedIn,
+	alwaysShowLogin: true
 };
 
 const logoStyle = {
@@ -25,6 +30,7 @@ const logoStyle = {
 
 export const FreshOrangesLogin = TemplatePage.bind({});
 FreshOrangesLogin.args = {
+	...Default.args,
 	logo: (
 		<h1 style={{ color: 'orange', ...logoStyle, fontSize: '2.5rem' }}>
 			Fresh Oranges
@@ -37,14 +43,17 @@ FreshOrangesLogin.args = {
 
 export const StocksLogin = TemplatePage.bind({});
 StocksLogin.args = {
+	...Default.args,
 	logo: <h1 style={{ ...logoStyle, fontFamily: 'Gemunu Libre' }}>Stocks</h1>,
 	bgColor1: '#ebffd0',
 	bgColor2: '#9ad08f',
-	accentColor: '#09ad01'
+	accentColor: '#09ad01',
+	children: loggedIn
 };
 
 export const AnalyticsLogin = TemplatePage.bind({});
 AnalyticsLogin.args = {
+	...Default.args,
 	logo: (
 		<h1
 			style={{
@@ -58,5 +67,6 @@ AnalyticsLogin.args = {
 		</h1>
 	),
 	bgColor1: '#e6f7ff',
-	bgColor2: '#91d5ff'
+	bgColor2: '#91d5ff',
+	children: loggedIn
 };
