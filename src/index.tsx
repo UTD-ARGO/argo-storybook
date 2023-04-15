@@ -18,6 +18,7 @@ export { default as LoginPage } from './components/login/LoginPage';
 export { default as Menu } from './components/menu/Menu';
 export { default as RadioButton } from './components/radiobutton/RadioButton';
 export { default as SearchBar } from './components/searchbar/SearchBar';
+export { default as Signup } from './components/login/Signup';
 export { default as Tab } from './components/tab/Tab';
 export {default as CustomTab} from './components/tab/CustomTab'
 export { default as TextField } from './components/textfield/TextField';

@@ -13,7 +13,8 @@ const Login = (props: LoginProps) => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
-	const handleLogin = () => {
+	const handleLogin = (e: any) => {
+		e.preventDefault();
 		if (props.onLogin) {
 			props.onLogin({ username, password });
 		}
@@ -63,7 +64,9 @@ const Login = (props: LoginProps) => {
 				}}
 			>
 				<div>
-					<a href="#">Create Account</a>
+					<a href="#" style={{ textDecoration: 'none' }}>
+						Forgot Password?
+					</a>
 				</div>
 				<Button
 					label="Log In"
