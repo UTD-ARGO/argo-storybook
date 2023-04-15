@@ -50,11 +50,11 @@ const LoginPage = (props: PropsWithChildren<LoginPageProps>) => {
 	// Render children if logged in, otherwise render login page
 	// Realistically this isn't a good way to do this but it's just a demo
 	return (
-		<div style={style}>
+		<div>
 			{isLoggedIn ? (
 				props.children
 			) : (
-				<>
+				<div style={style}>
 					{!onSignupTab ? (
 						<>
 							<Login
@@ -90,7 +90,7 @@ const LoginPage = (props: PropsWithChildren<LoginPageProps>) => {
 							/>
 						</>
 					)}
-				</>
+				</div>
 			)}
 		</div>
 	);
