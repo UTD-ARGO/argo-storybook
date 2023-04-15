@@ -1,5 +1,7 @@
 import { PropsWithChildren, useState, useEffect } from 'react';
 import Login from './Login';
+import Signup from './Signup';
+import Button from '../button/Button';
 
 export type LoginPageProps = {
 	logo?: string | React.ReactNode;
@@ -11,6 +13,9 @@ export type LoginPageProps = {
 };
 
 const LoginPage = (props: PropsWithChildren<LoginPageProps>) => {
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [onSignupTab, setOnSignupTab] = useState(false);
+
 	const {
 		bgColor1 = 'transparent',
 		bgColor2 = 'transparent',
@@ -24,10 +29,10 @@ const LoginPage = (props: PropsWithChildren<LoginPageProps>) => {
 		background: `linear-gradient(${bgColor1}, ${bgColor2})`,
 		display: 'flex',
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		flexDirection: 'column',
+		gap: '20px'
 	} as React.CSSProperties;
-
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	const onLogin = () => {
 		setIsLoggedIn(true);
@@ -49,11 +54,43 @@ const LoginPage = (props: PropsWithChildren<LoginPageProps>) => {
 			{isLoggedIn ? (
 				props.children
 			) : (
-				<Login
-					logo={props.logo}
-					accentColor={props.accentColor}
-					onLogin={onLogin}
-				/>
+				<>
+					{!onSignupTab ? (
+						<>
+							<Login
+								logo={props.logo}
+								accentColor={props.accentColor}
+								onLogin={onLogin}
+							/>
+							<Button
+								label="Need an Account?"
+								onClick={(e) => {
+									e.preventDefault();
+									setOnSignupTab(true);
+								}}
+								variant="primary"
+								color={props.accentColor}
+							/>
+						</>
+					) : (
+						<>
+							<Signup
+								logo={props.logo}
+								accentColor={props.accentColor}
+								onSignup={onLogin}
+							/>
+							<Button
+								label="Already have an account?"
+								onClick={(e) => {
+									e.preventDefault();
+									setOnSignupTab(false);
+								}}
+								variant="primary"
+								color={props.accentColor}
+							/>
+						</>
+					)}
+				</>
 			)}
 		</div>
 	);
