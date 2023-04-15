@@ -1,12 +1,12 @@
 import { useReducer } from 'react';
 import Button from '../button/Button';
 import Card from '../card/Card';
-import TextField from '../textfield/TextField';
+import TextField, { TextFieldProps } from '../textfield/TextField';
 
 export type SignupProps = {
 	logo: string | React.ReactNode;
 	accentColor?: string;
-	onSignup?: (data: any) => void;
+	onSignup?: (data: AccountInfo) => void;
 };
 
 export type AccountInfo = {
@@ -53,6 +53,13 @@ const reducer = (
 	}
 };
 
+const fieldArgs = {
+	size: 'small',
+	margin: 'normal',
+	width: 340,
+	required: true
+} as TextFieldProps;
+
 const Signup = (props: SignupProps) => {
 	const [accInfo, setAccInfo] = useReducer(reducer, initialState);
 
@@ -83,72 +90,55 @@ const Signup = (props: SignupProps) => {
 					}}
 				>
 					<TextField
+						{...fieldArgs}
 						label="First Name"
-						size="small"
-						margin="normal"
 						width={160}
-						required
 						onChange={(e) => {
 							setAccInfo({ type: 'firstName', payload: e.target.value });
 						}}
 					/>
 					<TextField
+						{...fieldArgs}
 						label="Last Name"
-						size="small"
-						margin="normal"
 						width={160}
-						required
 						onChange={(e) => {
 							setAccInfo({ type: 'lastName', payload: e.target.value });
 						}}
 					/>
 				</div>
 				<TextField
+					{...fieldArgs}
 					label="Email Address"
-					size="small"
-					margin="normal"
-					width={340}
-					required
 					onChange={(e) => {
 						setAccInfo({ type: 'email', payload: e.target.value });
 					}}
 				/>
 				<TextField
+					{...fieldArgs}
 					label="Username"
-					size="small"
-					margin="normal"
-					width={340}
-					required
 					onChange={(e) => {
 						setAccInfo({ type: 'username', payload: e.target.value });
 					}}
 				/>
 				<TextField
+					{...fieldArgs}
 					label="Password"
-					size="small"
-					margin="normal"
-					width={340}
-					required
 					onChange={(e) => {
 						setAccInfo({ type: 'password', payload: e.target.value });
 					}}
 				/>
 				<TextField
+					{...fieldArgs}
 					label="Confirm Password"
-					size="small"
-					margin="normal"
-					width={340}
-					required
 					onChange={(e) => {
 						setAccInfo({ type: 'confirmPassword', payload: e.target.value });
 					}}
 				/>
 
 				<TextField
+					{...fieldArgs}
 					label="Phone Number"
-					size="small"
-					margin="normal"
-					width={340}
+					required={false}
 					onChange={(e) => {
 						setAccInfo({ type: 'phone', payload: e.target.value });
 					}}
