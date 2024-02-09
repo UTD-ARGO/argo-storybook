@@ -1,3 +1,5 @@
+import "./index.css";
+
 export { default as Accordion } from "./components/accordion/Accordion";
 export { default as Alert } from "./components/alert/Alert";
 export { default as Badge } from "./components/badge/Badge";
@@ -28,5 +30,3 @@ export { default as Image } from "./components/image/Image";
 export { default as Table } from "./components/table/Table";
 export { default as AdvancedTable } from "./components/table/AdvancedTable";
 export { default as Switch } from "./components/switch/Switch";
-
-import "./index.css";
