@@ -88,5 +88,7 @@
 			}
 		]
 	},
-	"dependencies": {}
+	"dependencies": {
+		"react-docgen-typescript": "^2.2.2"
+	}
 }
