@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - UG3-63
 
 permissions:
   contents: read # for checkout
