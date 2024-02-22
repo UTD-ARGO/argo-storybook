@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - UG3-63
 
 permissions:
   contents: read # for checkout
@@ -34,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release --branches UG3-63
+        run: npx semantic-release
