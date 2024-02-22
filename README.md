@@ -2,6 +2,12 @@
 
 ## This is a continuation of the original [ARGO UX Master Component Library](https://www.npmjs.com/package/@utd-argo/ux-master-library)
 
+## Newly released features:
+
+- react-docgen-typescript implementation for better storybook controls
+- semantic-release for automatic package deployment
+- Storybook GPT for AI generated stories
+
 ## Table of Contents
 
 - [ARGO UX Master Component Library](#argo-ux-master-component-library)
